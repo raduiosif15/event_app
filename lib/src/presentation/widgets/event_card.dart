@@ -17,7 +17,7 @@ class EventCard extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(AppRoutes.details, arguments: event);
+        Navigator.of(context).pushNamed(AppRoutes.details, arguments: event.id);
       },
       child: Card(
         shape: RoundedRectangleBorder(

@@ -4,9 +4,8 @@ import 'package:event_app/generated/l10n.dart';
 import 'package:event_app/src/containers/index.dart';
 import 'package:event_app/src/models/event/index.dart';
 import 'package:event_app/src/presentation/widgets/event_card.dart';
-import 'package:event_app/src/util/assets.dart';
+import 'package:event_app/src/presentation/widgets/no_result_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class EventsList extends StatefulWidget {
   const EventsList({required this.vm, super.key});
@@ -49,17 +48,7 @@ class _EventsListState extends State<EventsList> {
     }
 
     if (widget.vm.searchEvents.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            SvgPicture.asset(
-              AppAssets.appSvgs.noResults,
-            ),
-            Text(S.of(context).no_results),
-          ],
-        ),
-      );
+      return NoResultWidget(text: S.of(context).no_results);
     }
 
     return CustomScrollView(

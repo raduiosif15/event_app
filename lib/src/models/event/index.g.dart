@@ -24,11 +24,6 @@ _$Event$ _$$Event$FromJson(Map<String, dynamic> json) => _$Event$(
               ?.map((e) => EAImage.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <EAImage>[],
-      info: json['info'] as String?,
-      priceRanges: (json['priceRanges'] as List<dynamic>?)
-              ?.map((e) => PriceRange.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const <PriceRange>[],
     );
 
 Map<String, dynamic> _$$Event$ToJson(_$Event$ instance) => <String, dynamic>{
@@ -36,24 +31,32 @@ Map<String, dynamic> _$$Event$ToJson(_$Event$ instance) => <String, dynamic>{
       'name': instance.name,
       'dates': instance.dates,
       'images': instance.images,
-      'info': instance.info,
-      'priceRanges': instance.priceRanges,
     };
 
-_$PriceRange$ _$$PriceRange$FromJson(Map<String, dynamic> json) =>
-    _$PriceRange$(
-      type: json['type'] as String,
-      currency: json['currency'] as String,
-      min: (json['min'] as num).toDouble(),
-      max: (json['max'] as num).toDouble(),
+_$EventDetailed$ _$$EventDetailed$FromJson(Map<String, dynamic> json) =>
+    _$EventDetailed$(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      dates: Dates.fromJson(json['dates'] as Map<String, dynamic>),
+      images: (json['images'] as List<dynamic>?)
+              ?.map((e) => EAImage.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <EAImage>[],
+      info: json['info'] as String?,
+      priceRanges: (json['priceRanges'] as List<dynamic>?)
+              ?.map((e) => PriceRange.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <PriceRange>[],
     );
 
-Map<String, dynamic> _$$PriceRange$ToJson(_$PriceRange$ instance) =>
+Map<String, dynamic> _$$EventDetailed$ToJson(_$EventDetailed$ instance) =>
     <String, dynamic>{
-      'type': instance.type,
-      'currency': instance.currency,
-      'min': instance.min,
-      'max': instance.max,
+      'id': instance.id,
+      'name': instance.name,
+      'dates': instance.dates,
+      'images': instance.images,
+      'info': instance.info,
+      'priceRanges': instance.priceRanges,
     };
 
 _$EventState$ _$$EventState$FromJson(Map<String, dynamic> json) =>
@@ -84,6 +87,22 @@ Map<String, dynamic> _$$EAImage$ToJson(_$EAImage$ instance) =>
       'url': instance.url,
       'width': instance.width,
       'height': instance.height,
+    };
+
+_$PriceRange$ _$$PriceRange$FromJson(Map<String, dynamic> json) =>
+    _$PriceRange$(
+      type: json['type'] as String,
+      currency: json['currency'] as String,
+      min: (json['min'] as num).toDouble(),
+      max: (json['max'] as num).toDouble(),
+    );
+
+Map<String, dynamic> _$$PriceRange$ToJson(_$PriceRange$ instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'currency': instance.currency,
+      'min': instance.min,
+      'max': instance.max,
     };
 
 _$StartDates$ _$$StartDates$FromJson(Map<String, dynamic> json) =>

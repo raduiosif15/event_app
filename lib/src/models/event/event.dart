@@ -7,8 +7,6 @@ class Event with _$Event {
     required String name,
     required Dates dates,
     @Default(<EAImage>[]) List<EAImage> images,
-    String? info,
-    @Default(<PriceRange>[]) List<PriceRange> priceRanges,
   }) = Event$;
 
   factory Event.fromJson(Map<dynamic, dynamic> json) => _$EventFromJson(Map<String, dynamic>.from(json));

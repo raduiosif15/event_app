@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:event_app/src/data/index.dart';
+import 'package:event_app/src/models/event/index.dart';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
 
@@ -34,5 +35,20 @@ class EventsApi {
     final Map<String, dynamic> body = jsonDecode(result.body) as Map<String, dynamic>;
 
     return PaginatedResult.fromJson(body);
+  }
+
+  Future<EventDetailed> getEventDetails(String id) async {
+    final Map<String, dynamic> queryParameters = <String, dynamic>{'apikey': _apiKey};
+
+    final Uri url = Uri.https(_host, '/discovery/v2/events/$id.json', queryParameters);
+    final Response result = await _client.get(url);
+
+    if (result.statusCode != 200) {
+      throw StateError('Something went wrong');
+    }
+
+    final Map<String, dynamic> body = jsonDecode(result.body) as Map<String, dynamic>;
+
+    return EventDetailed.fromJson(body);
   }
 }

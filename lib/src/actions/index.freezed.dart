@@ -836,6 +836,608 @@ abstract class GetEventsError implements GetEvents, ActionDone, ErrorAction {
 }
 
 /// @nodoc
+mixin _$GetEvent {
+  String get pendingId => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, ActionResult result, String pendingId)
+        start,
+    required TResult Function(EventDetailed event, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, ActionResult result, String pendingId)? start,
+    TResult? Function(EventDetailed event, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, ActionResult result, String pendingId)? start,
+    TResult Function(EventDetailed event, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetEventStart value) start,
+    required TResult Function(GetEventSuccessful value) successful,
+    required TResult Function(GetEventError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetEventStart value)? start,
+    TResult? Function(GetEventSuccessful value)? successful,
+    TResult? Function(GetEventError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetEventStart value)? start,
+    TResult Function(GetEventSuccessful value)? successful,
+    TResult Function(GetEventError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $GetEventCopyWith<GetEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetEventCopyWith<$Res> {
+  factory $GetEventCopyWith(GetEvent value, $Res Function(GetEvent) then) =
+      _$GetEventCopyWithImpl<$Res, GetEvent>;
+  @useResult
+  $Res call({String pendingId});
+}
+
+/// @nodoc
+class _$GetEventCopyWithImpl<$Res, $Val extends GetEvent>
+    implements $GetEventCopyWith<$Res> {
+  _$GetEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pendingId = null,
+  }) {
+    return _then(_value.copyWith(
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$GetEventStartCopyWith<$Res>
+    implements $GetEventCopyWith<$Res> {
+  factory _$$GetEventStartCopyWith(
+          _$GetEventStart value, $Res Function(_$GetEventStart) then) =
+      __$$GetEventStartCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, ActionResult result, String pendingId});
+}
+
+/// @nodoc
+class __$$GetEventStartCopyWithImpl<$Res>
+    extends _$GetEventCopyWithImpl<$Res, _$GetEventStart>
+    implements _$$GetEventStartCopyWith<$Res> {
+  __$$GetEventStartCopyWithImpl(
+      _$GetEventStart _value, $Res Function(_$GetEventStart) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? result = null,
+    Object? pendingId = null,
+  }) {
+    return _then(_$GetEventStart(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetEventStart implements GetEventStart {
+  const _$GetEventStart(this.id,
+      {required this.result, this.pendingId = _kGetEventPendingId});
+
+  @override
+  final String id;
+  @override
+  final ActionResult result;
+  @override
+  @JsonKey()
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'GetEvent.start(id: $id, result: $result, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetEventStart &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.result, result) || other.result == result) &&
+            (identical(other.pendingId, pendingId) ||
+                other.pendingId == pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, result, pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetEventStartCopyWith<_$GetEventStart> get copyWith =>
+      __$$GetEventStartCopyWithImpl<_$GetEventStart>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, ActionResult result, String pendingId)
+        start,
+    required TResult Function(EventDetailed event, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) {
+    return start(id, result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, ActionResult result, String pendingId)? start,
+    TResult? Function(EventDetailed event, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) {
+    return start?.call(id, result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, ActionResult result, String pendingId)? start,
+    TResult Function(EventDetailed event, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (start != null) {
+      return start(id, result, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetEventStart value) start,
+    required TResult Function(GetEventSuccessful value) successful,
+    required TResult Function(GetEventError value) error,
+  }) {
+    return start(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetEventStart value)? start,
+    TResult? Function(GetEventSuccessful value)? successful,
+    TResult? Function(GetEventError value)? error,
+  }) {
+    return start?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetEventStart value)? start,
+    TResult Function(GetEventSuccessful value)? successful,
+    TResult Function(GetEventError value)? error,
+    required TResult orElse(),
+  }) {
+    if (start != null) {
+      return start(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetEventStart implements GetEvent, ActionStart {
+  const factory GetEventStart(final String id,
+      {required final ActionResult result,
+      final String pendingId}) = _$GetEventStart;
+
+  String get id;
+  ActionResult get result;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetEventStartCopyWith<_$GetEventStart> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetEventSuccessfulCopyWith<$Res>
+    implements $GetEventCopyWith<$Res> {
+  factory _$$GetEventSuccessfulCopyWith(_$GetEventSuccessful value,
+          $Res Function(_$GetEventSuccessful) then) =
+      __$$GetEventSuccessfulCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({EventDetailed event, String pendingId});
+
+  $EventDetailedCopyWith<$Res> get event;
+}
+
+/// @nodoc
+class __$$GetEventSuccessfulCopyWithImpl<$Res>
+    extends _$GetEventCopyWithImpl<$Res, _$GetEventSuccessful>
+    implements _$$GetEventSuccessfulCopyWith<$Res> {
+  __$$GetEventSuccessfulCopyWithImpl(
+      _$GetEventSuccessful _value, $Res Function(_$GetEventSuccessful) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+    Object? pendingId = null,
+  }) {
+    return _then(_$GetEventSuccessful(
+      null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as EventDetailed,
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EventDetailedCopyWith<$Res> get event {
+    return $EventDetailedCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GetEventSuccessful implements GetEventSuccessful {
+  const _$GetEventSuccessful(this.event,
+      {this.pendingId = _kGetEventPendingId});
+
+  @override
+  final EventDetailed event;
+  @override
+  @JsonKey()
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'GetEvent.successful(event: $event, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetEventSuccessful &&
+            (identical(other.event, event) || other.event == event) &&
+            (identical(other.pendingId, pendingId) ||
+                other.pendingId == pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, event, pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetEventSuccessfulCopyWith<_$GetEventSuccessful> get copyWith =>
+      __$$GetEventSuccessfulCopyWithImpl<_$GetEventSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, ActionResult result, String pendingId)
+        start,
+    required TResult Function(EventDetailed event, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) {
+    return successful(event, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, ActionResult result, String pendingId)? start,
+    TResult? Function(EventDetailed event, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) {
+    return successful?.call(event, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, ActionResult result, String pendingId)? start,
+    TResult Function(EventDetailed event, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(event, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetEventStart value) start,
+    required TResult Function(GetEventSuccessful value) successful,
+    required TResult Function(GetEventError value) error,
+  }) {
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetEventStart value)? start,
+    TResult? Function(GetEventSuccessful value)? successful,
+    TResult? Function(GetEventError value)? error,
+  }) {
+    return successful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetEventStart value)? start,
+    TResult Function(GetEventSuccessful value)? successful,
+    TResult Function(GetEventError value)? error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetEventSuccessful implements GetEvent, ActionDone {
+  const factory GetEventSuccessful(final EventDetailed event,
+      {final String pendingId}) = _$GetEventSuccessful;
+
+  EventDetailed get event;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetEventSuccessfulCopyWith<_$GetEventSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetEventErrorCopyWith<$Res>
+    implements $GetEventCopyWith<$Res> {
+  factory _$$GetEventErrorCopyWith(
+          _$GetEventError value, $Res Function(_$GetEventError) then) =
+      __$$GetEventErrorCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Object error, StackTrace stackTrace, String pendingId});
+}
+
+/// @nodoc
+class __$$GetEventErrorCopyWithImpl<$Res>
+    extends _$GetEventCopyWithImpl<$Res, _$GetEventError>
+    implements _$$GetEventErrorCopyWith<$Res> {
+  __$$GetEventErrorCopyWithImpl(
+      _$GetEventError _value, $Res Function(_$GetEventError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+    Object? stackTrace = null,
+    Object? pendingId = null,
+  }) {
+    return _then(_$GetEventError(
+      null == error ? _value.error : error,
+      null == stackTrace
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetEventError implements GetEventError {
+  const _$GetEventError(this.error, this.stackTrace,
+      {this.pendingId = _kGetEventPendingId});
+
+  @override
+  final Object error;
+  @override
+  final StackTrace stackTrace;
+  @override
+  @JsonKey()
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'GetEvent.error(error: $error, stackTrace: $stackTrace, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetEventError &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace) &&
+            (identical(other.pendingId, pendingId) ||
+                other.pendingId == pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(error), stackTrace, pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetEventErrorCopyWith<_$GetEventError> get copyWith =>
+      __$$GetEventErrorCopyWithImpl<_$GetEventError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, ActionResult result, String pendingId)
+        start,
+    required TResult Function(EventDetailed event, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) {
+    return error(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, ActionResult result, String pendingId)? start,
+    TResult? Function(EventDetailed event, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) {
+    return error?.call(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, ActionResult result, String pendingId)? start,
+    TResult Function(EventDetailed event, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error, stackTrace, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetEventStart value) start,
+    required TResult Function(GetEventSuccessful value) successful,
+    required TResult Function(GetEventError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetEventStart value)? start,
+    TResult? Function(GetEventSuccessful value)? successful,
+    TResult? Function(GetEventError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetEventStart value)? start,
+    TResult Function(GetEventSuccessful value)? successful,
+    TResult Function(GetEventError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetEventError implements GetEvent, ActionDone, ErrorAction {
+  const factory GetEventError(final Object error, final StackTrace stackTrace,
+      {final String pendingId}) = _$GetEventError;
+
+  Object get error;
+  StackTrace get stackTrace;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetEventErrorCopyWith<_$GetEventError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SetPage {
   Page get page => throw _privateConstructorUsedError;
 

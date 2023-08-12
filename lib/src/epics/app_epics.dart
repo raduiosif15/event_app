@@ -16,6 +16,7 @@ class AppEpics implements EpicClass<AppState> {
   Stream<dynamic> call(Stream<dynamic> actions, EpicStore<AppState> store) {
     return combineEpics<AppState>(<Epic<AppState>>[
       TypedEpic<AppState, GetEventsAction>(_getEvents).call,
+      TypedEpic<AppState, GetEventStart>(_getEvent).call,
     ])(actions, store);
   }
 
@@ -34,6 +35,16 @@ class AppEpics implements EpicClass<AppState> {
       }).onErrorReturnWith((Object error, StackTrace stackTrace) {
         return GetEvents.error(error, stackTrace, pendingId: action.pendingId);
       });
+    });
+  }
+
+  Stream<AppAction> _getEvent(Stream<GetEventStart> actions, EpicStore<AppState> store) {
+    return actions.flatMap((GetEventStart action) {
+      return Stream<void>.value(null) //
+          .asyncMap((_) => _api.getEventDetails(action.id))
+          .map(GetEvent.successful)
+          .onErrorReturnWith(GetEvent.error)
+          .doOnData(action.result);
     });
   }
 }
