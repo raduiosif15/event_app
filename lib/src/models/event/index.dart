@@ -1,3 +1,4 @@
+import 'package:event_app/src/data/index.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dates.dart';

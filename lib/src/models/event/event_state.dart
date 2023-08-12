@@ -4,6 +4,7 @@ part of 'index.dart';
 class EventState with _$EventState {
   const factory EventState({
     @Default(<String, Event>{}) Map<String, Event> events,
+    @Default(Page()) Page page,
   }) = EventState$;
 
   factory EventState.fromJson(Map<dynamic, dynamic> json) => _$EventStateFromJson(Map<String, dynamic>.from(json));

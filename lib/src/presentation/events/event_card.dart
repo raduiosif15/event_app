@@ -63,7 +63,7 @@ class EventCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        event.dates.start.dateTime.eventCardDate,
+                        event.dates.start.dateTime?.eventCardDate ?? event.dates.start.localDate.eventCardDate,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],

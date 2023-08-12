@@ -23,10 +23,13 @@ class AppEpics implements EpicClass<AppState> {
     return actions.flatMap((GetEventsAction action) {
       return Stream<void>.value(null) //
           .asyncMap((_) {
-        return _api.getEvents();
+        final int? page = action is GetEventsMore ? action.page : null;
+
+        return _api.getEvents(page: page);
       }).expand((PaginatedResult response) {
         return <AppAction>[
           GetEvents.successful(response.embedded.events, refresh: action.refresh, pendingId: action.pendingId),
+          SetPage(response.page),
         ];
       }).onErrorReturnWith((Object error, StackTrace stackTrace) {
         return GetEvents.error(error, stackTrace, pendingId: action.pendingId);

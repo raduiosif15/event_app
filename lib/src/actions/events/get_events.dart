@@ -19,6 +19,7 @@ class GetEvents with _$GetEvents implements AppAction {
   @Implements<ActionStart>()
   @Implements<GetEventsAction>()
   const factory GetEvents.more({
+    required int page,
     @Default(false) bool refresh,
     @Default(_kGetEventsMorePendingId) String pendingId,
   }) = GetEventsMore;

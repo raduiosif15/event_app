@@ -22,7 +22,14 @@ class SearchResultsContainer extends StatelessWidget {
               return;
             }
 
-            // context.dispatch(GetEvents.more(/*page:*/));
+            final int page = store.state.events.page.number + 1;
+            final int totalPages = store.state.events.page.totalPages;
+
+            if (page > totalPages) {
+              return;
+            }
+
+            context.dispatch(GetEvents.more(page: page));
           },
         );
       },

@@ -5,6 +5,7 @@ import 'package:redux/redux.dart';
 Reducer<EventState> eventsReducer = combineReducers(
   <Reducer<EventState>>[
     TypedReducer<EventState, GetEventsSuccessful>(_getEventsSuccessful).call,
+    TypedReducer<EventState, SetPage>(_setPage).call,
   ],
 );
 
@@ -15,4 +16,8 @@ EventState _getEventsSuccessful(EventState state, GetEventsSuccessful action) {
       for (final Event event in action.events) event.id: event,
     },
   );
+}
+
+EventState _setPage(EventState state, SetPage action) {
+  return state.copyWith(page: action.page);
 }

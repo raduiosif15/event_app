@@ -18,8 +18,11 @@ class EventsApi {
   final String _host;
   final String _apiKey;
 
-  Future<PaginatedResult> getEvents() async {
-    final Map<String, dynamic> queryParameters = <String, dynamic>{'apikey': _apiKey};
+  Future<PaginatedResult> getEvents({int? page}) async {
+    final Map<String, dynamic> queryParameters = <String, dynamic>{
+      'apikey': _apiKey,
+      'page': '${page ?? 0}',
+    };
 
     final Uri url = Uri.https(_host, '/discovery/v2/events.json', queryParameters);
     final Response result = await _client.get(url);

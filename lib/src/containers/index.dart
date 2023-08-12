@@ -1,5 +1,6 @@
 import 'package:event_app/src/actions/index.dart';
 import 'package:event_app/src/models/index.dart';
+import 'package:event_app/src/util/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

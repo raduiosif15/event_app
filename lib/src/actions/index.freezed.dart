@@ -20,7 +20,7 @@ mixin _$GetEvents {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool refresh, String pendingId) start,
-    required TResult Function(bool refresh, String pendingId) more,
+    required TResult Function(int page, bool refresh, String pendingId) more,
     required TResult Function(
             List<Event> events, bool refresh, String pendingId)
         successful,
@@ -32,7 +32,7 @@ mixin _$GetEvents {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool refresh, String pendingId)? start,
-    TResult? Function(bool refresh, String pendingId)? more,
+    TResult? Function(int page, bool refresh, String pendingId)? more,
     TResult? Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -42,7 +42,7 @@ mixin _$GetEvents {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool refresh, String pendingId)? start,
-    TResult Function(bool refresh, String pendingId)? more,
+    TResult Function(int page, bool refresh, String pendingId)? more,
     TResult Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -192,7 +192,7 @@ class _$GetEventsStart implements GetEventsStart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool refresh, String pendingId) start,
-    required TResult Function(bool refresh, String pendingId) more,
+    required TResult Function(int page, bool refresh, String pendingId) more,
     required TResult Function(
             List<Event> events, bool refresh, String pendingId)
         successful,
@@ -207,7 +207,7 @@ class _$GetEventsStart implements GetEventsStart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool refresh, String pendingId)? start,
-    TResult? Function(bool refresh, String pendingId)? more,
+    TResult? Function(int page, bool refresh, String pendingId)? more,
     TResult? Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -220,7 +220,7 @@ class _$GetEventsStart implements GetEventsStart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool refresh, String pendingId)? start,
-    TResult Function(bool refresh, String pendingId)? more,
+    TResult Function(int page, bool refresh, String pendingId)? more,
     TResult Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -293,7 +293,7 @@ abstract class _$$GetEventsMoreCopyWith<$Res>
       __$$GetEventsMoreCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool refresh, String pendingId});
+  $Res call({int page, bool refresh, String pendingId});
 }
 
 /// @nodoc
@@ -307,10 +307,15 @@ class __$$GetEventsMoreCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? page = null,
     Object? refresh = null,
     Object? pendingId = null,
   }) {
     return _then(_$GetEventsMore(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
       refresh: null == refresh
           ? _value.refresh
           : refresh // ignore: cast_nullable_to_non_nullable
@@ -327,8 +332,12 @@ class __$$GetEventsMoreCopyWithImpl<$Res>
 
 class _$GetEventsMore implements GetEventsMore {
   const _$GetEventsMore(
-      {this.refresh = false, this.pendingId = _kGetEventsMorePendingId});
+      {required this.page,
+      this.refresh = false,
+      this.pendingId = _kGetEventsMorePendingId});
 
+  @override
+  final int page;
   @override
   @JsonKey()
   final bool refresh;
@@ -338,7 +347,7 @@ class _$GetEventsMore implements GetEventsMore {
 
   @override
   String toString() {
-    return 'GetEvents.more(refresh: $refresh, pendingId: $pendingId)';
+    return 'GetEvents.more(page: $page, refresh: $refresh, pendingId: $pendingId)';
   }
 
   @override
@@ -346,13 +355,14 @@ class _$GetEventsMore implements GetEventsMore {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetEventsMore &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.refresh, refresh) || other.refresh == refresh) &&
             (identical(other.pendingId, pendingId) ||
                 other.pendingId == pendingId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, refresh, pendingId);
+  int get hashCode => Object.hash(runtimeType, page, refresh, pendingId);
 
   @JsonKey(ignore: true)
   @override
@@ -364,7 +374,7 @@ class _$GetEventsMore implements GetEventsMore {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool refresh, String pendingId) start,
-    required TResult Function(bool refresh, String pendingId) more,
+    required TResult Function(int page, bool refresh, String pendingId) more,
     required TResult Function(
             List<Event> events, bool refresh, String pendingId)
         successful,
@@ -372,27 +382,27 @@ class _$GetEventsMore implements GetEventsMore {
             Object error, StackTrace stackTrace, String pendingId)
         error,
   }) {
-    return more(refresh, pendingId);
+    return more(page, refresh, pendingId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool refresh, String pendingId)? start,
-    TResult? Function(bool refresh, String pendingId)? more,
+    TResult? Function(int page, bool refresh, String pendingId)? more,
     TResult? Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
         error,
   }) {
-    return more?.call(refresh, pendingId);
+    return more?.call(page, refresh, pendingId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool refresh, String pendingId)? start,
-    TResult Function(bool refresh, String pendingId)? more,
+    TResult Function(int page, bool refresh, String pendingId)? more,
     TResult Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -400,7 +410,7 @@ class _$GetEventsMore implements GetEventsMore {
     required TResult orElse(),
   }) {
     if (more != null) {
-      return more(refresh, pendingId);
+      return more(page, refresh, pendingId);
     }
     return orElse();
   }
@@ -445,9 +455,12 @@ class _$GetEventsMore implements GetEventsMore {
 
 abstract class GetEventsMore
     implements GetEvents, ActionStart, GetEventsAction {
-  const factory GetEventsMore({final bool refresh, final String pendingId}) =
-      _$GetEventsMore;
+  const factory GetEventsMore(
+      {required final int page,
+      final bool refresh,
+      final String pendingId}) = _$GetEventsMore;
 
+  int get page;
   bool get refresh;
   @override
   String get pendingId;
@@ -551,7 +564,7 @@ class _$GetEventsSuccessful implements GetEventsSuccessful {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool refresh, String pendingId) start,
-    required TResult Function(bool refresh, String pendingId) more,
+    required TResult Function(int page, bool refresh, String pendingId) more,
     required TResult Function(
             List<Event> events, bool refresh, String pendingId)
         successful,
@@ -566,7 +579,7 @@ class _$GetEventsSuccessful implements GetEventsSuccessful {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool refresh, String pendingId)? start,
-    TResult? Function(bool refresh, String pendingId)? more,
+    TResult? Function(int page, bool refresh, String pendingId)? more,
     TResult? Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -579,7 +592,7 @@ class _$GetEventsSuccessful implements GetEventsSuccessful {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool refresh, String pendingId)? start,
-    TResult Function(bool refresh, String pendingId)? more,
+    TResult Function(int page, bool refresh, String pendingId)? more,
     TResult Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -729,7 +742,7 @@ class _$GetEventsError implements GetEventsError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool refresh, String pendingId) start,
-    required TResult Function(bool refresh, String pendingId) more,
+    required TResult Function(int page, bool refresh, String pendingId) more,
     required TResult Function(
             List<Event> events, bool refresh, String pendingId)
         successful,
@@ -744,7 +757,7 @@ class _$GetEventsError implements GetEventsError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool refresh, String pendingId)? start,
-    TResult? Function(bool refresh, String pendingId)? more,
+    TResult? Function(int page, bool refresh, String pendingId)? more,
     TResult? Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -757,7 +770,7 @@ class _$GetEventsError implements GetEventsError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool refresh, String pendingId)? start,
-    TResult Function(bool refresh, String pendingId)? more,
+    TResult Function(int page, bool refresh, String pendingId)? more,
     TResult Function(List<Event> events, bool refresh, String pendingId)?
         successful,
     TResult Function(Object error, StackTrace stackTrace, String pendingId)?
@@ -819,5 +832,131 @@ abstract class GetEventsError implements GetEvents, ActionDone, ErrorAction {
   @override
   @JsonKey(ignore: true)
   _$$GetEventsErrorCopyWith<_$GetEventsError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$SetPage {
+  Page get page => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SetPageCopyWith<SetPage> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SetPageCopyWith<$Res> {
+  factory $SetPageCopyWith(SetPage value, $Res Function(SetPage) then) =
+      _$SetPageCopyWithImpl<$Res, SetPage>;
+  @useResult
+  $Res call({Page page});
+
+  $PageCopyWith<$Res> get page;
+}
+
+/// @nodoc
+class _$SetPageCopyWithImpl<$Res, $Val extends SetPage>
+    implements $SetPageCopyWith<$Res> {
+  _$SetPageCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+  }) {
+    return _then(_value.copyWith(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as Page,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PageCopyWith<$Res> get page {
+    return $PageCopyWith<$Res>(_value.page, (value) {
+      return _then(_value.copyWith(page: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$SetPage$CopyWith<$Res> implements $SetPageCopyWith<$Res> {
+  factory _$$SetPage$CopyWith(
+          _$SetPage$ value, $Res Function(_$SetPage$) then) =
+      __$$SetPage$CopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Page page});
+
+  @override
+  $PageCopyWith<$Res> get page;
+}
+
+/// @nodoc
+class __$$SetPage$CopyWithImpl<$Res>
+    extends _$SetPageCopyWithImpl<$Res, _$SetPage$>
+    implements _$$SetPage$CopyWith<$Res> {
+  __$$SetPage$CopyWithImpl(_$SetPage$ _value, $Res Function(_$SetPage$) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+  }) {
+    return _then(_$SetPage$(
+      null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as Page,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetPage$ implements SetPage$ {
+  const _$SetPage$(this.page);
+
+  @override
+  final Page page;
+
+  @override
+  String toString() {
+    return 'SetPage(page: $page)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetPage$ &&
+            (identical(other.page, page) || other.page == page));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, page);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetPage$CopyWith<_$SetPage$> get copyWith =>
+      __$$SetPage$CopyWithImpl<_$SetPage$>(this, _$identity);
+}
+
+abstract class SetPage$ implements SetPage {
+  const factory SetPage$(final Page page) = _$SetPage$;
+
+  @override
+  Page get page;
+  @override
+  @JsonKey(ignore: true)
+  _$$SetPage$CopyWith<_$SetPage$> get copyWith =>
       throw _privateConstructorUsedError;
 }

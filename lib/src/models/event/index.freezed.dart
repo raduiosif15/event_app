@@ -388,6 +388,7 @@ EventState _$EventStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EventState {
   Map<String, Event> get events => throw _privateConstructorUsedError;
+  Page get page => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -401,7 +402,9 @@ abstract class $EventStateCopyWith<$Res> {
           EventState value, $Res Function(EventState) then) =
       _$EventStateCopyWithImpl<$Res, EventState>;
   @useResult
-  $Res call({Map<String, Event> events});
+  $Res call({Map<String, Event> events, Page page});
+
+  $PageCopyWith<$Res> get page;
 }
 
 /// @nodoc
@@ -418,13 +421,26 @@ class _$EventStateCopyWithImpl<$Res, $Val extends EventState>
   @override
   $Res call({
     Object? events = null,
+    Object? page = null,
   }) {
     return _then(_value.copyWith(
       events: null == events
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as Page,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PageCopyWith<$Res> get page {
+    return $PageCopyWith<$Res>(_value.page, (value) {
+      return _then(_value.copyWith(page: value) as $Val);
+    });
   }
 }
 
@@ -436,7 +452,10 @@ abstract class _$$EventState$CopyWith<$Res>
       __$$EventState$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, Event> events});
+  $Res call({Map<String, Event> events, Page page});
+
+  @override
+  $PageCopyWith<$Res> get page;
 }
 
 /// @nodoc
@@ -451,12 +470,17 @@ class __$$EventState$CopyWithImpl<$Res>
   @override
   $Res call({
     Object? events = null,
+    Object? page = null,
   }) {
     return _then(_$EventState$(
       events: null == events
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as Page,
     ));
   }
 }
@@ -465,7 +489,8 @@ class __$$EventState$CopyWithImpl<$Res>
 @JsonSerializable()
 class _$EventState$ implements EventState$ {
   const _$EventState$(
-      {final Map<String, Event> events = const <String, Event>{}})
+      {final Map<String, Event> events = const <String, Event>{},
+      this.page = const Page()})
       : _events = events;
 
   factory _$EventState$.fromJson(Map<String, dynamic> json) =>
@@ -481,8 +506,12 @@ class _$EventState$ implements EventState$ {
   }
 
   @override
+  @JsonKey()
+  final Page page;
+
+  @override
   String toString() {
-    return 'EventState(events: $events)';
+    return 'EventState(events: $events, page: $page)';
   }
 
   @override
@@ -490,13 +519,14 @@ class _$EventState$ implements EventState$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventState$ &&
-            const DeepCollectionEquality().equals(other._events, _events));
+            const DeepCollectionEquality().equals(other._events, _events) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_events));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_events), page);
 
   @JsonKey(ignore: true)
   @override
@@ -513,13 +543,16 @@ class _$EventState$ implements EventState$ {
 }
 
 abstract class EventState$ implements EventState {
-  const factory EventState$({final Map<String, Event> events}) = _$EventState$;
+  const factory EventState$(
+      {final Map<String, Event> events, final Page page}) = _$EventState$;
 
   factory EventState$.fromJson(Map<String, dynamic> json) =
       _$EventState$.fromJson;
 
   @override
   Map<String, Event> get events;
+  @override
+  Page get page;
   @override
   @JsonKey(ignore: true)
   _$$EventState$CopyWith<_$EventState$> get copyWith =>
@@ -699,7 +732,8 @@ StartDates _$StartDatesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StartDates {
-  DateTime get dateTime => throw _privateConstructorUsedError;
+  DateTime get localDate => throw _privateConstructorUsedError;
+  DateTime? get dateTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -713,7 +747,7 @@ abstract class $StartDatesCopyWith<$Res> {
           StartDates value, $Res Function(StartDates) then) =
       _$StartDatesCopyWithImpl<$Res, StartDates>;
   @useResult
-  $Res call({DateTime dateTime});
+  $Res call({DateTime localDate, DateTime? dateTime});
 }
 
 /// @nodoc
@@ -729,13 +763,18 @@ class _$StartDatesCopyWithImpl<$Res, $Val extends StartDates>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateTime = null,
+    Object? localDate = null,
+    Object? dateTime = freezed,
   }) {
     return _then(_value.copyWith(
-      dateTime: null == dateTime
+      localDate: null == localDate
+          ? _value.localDate
+          : localDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -748,7 +787,7 @@ abstract class _$$StartDates$CopyWith<$Res>
       __$$StartDates$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DateTime dateTime});
+  $Res call({DateTime localDate, DateTime? dateTime});
 }
 
 /// @nodoc
@@ -762,13 +801,18 @@ class __$$StartDates$CopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateTime = null,
+    Object? localDate = null,
+    Object? dateTime = freezed,
   }) {
     return _then(_$StartDates$(
-      dateTime: null == dateTime
+      localDate: null == localDate
+          ? _value.localDate
+          : localDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -776,17 +820,19 @@ class __$$StartDates$CopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StartDates$ implements StartDates$ {
-  const _$StartDates$({required this.dateTime});
+  const _$StartDates$({required this.localDate, this.dateTime});
 
   factory _$StartDates$.fromJson(Map<String, dynamic> json) =>
       _$$StartDates$FromJson(json);
 
   @override
-  final DateTime dateTime;
+  final DateTime localDate;
+  @override
+  final DateTime? dateTime;
 
   @override
   String toString() {
-    return 'StartDates(dateTime: $dateTime)';
+    return 'StartDates(localDate: $localDate, dateTime: $dateTime)';
   }
 
   @override
@@ -794,13 +840,15 @@ class _$StartDates$ implements StartDates$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StartDates$ &&
+            (identical(other.localDate, localDate) ||
+                other.localDate == localDate) &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, dateTime);
+  int get hashCode => Object.hash(runtimeType, localDate, dateTime);
 
   @JsonKey(ignore: true)
   @override
@@ -817,13 +865,17 @@ class _$StartDates$ implements StartDates$ {
 }
 
 abstract class StartDates$ implements StartDates {
-  const factory StartDates$({required final DateTime dateTime}) = _$StartDates$;
+  const factory StartDates$(
+      {required final DateTime localDate,
+      final DateTime? dateTime}) = _$StartDates$;
 
   factory StartDates$.fromJson(Map<String, dynamic> json) =
       _$StartDates$.fromJson;
 
   @override
-  DateTime get dateTime;
+  DateTime get localDate;
+  @override
+  DateTime? get dateTime;
   @override
   @JsonKey(ignore: true)
   _$$StartDates$CopyWith<_$StartDates$> get copyWith =>

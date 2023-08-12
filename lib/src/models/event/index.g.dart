@@ -39,11 +39,15 @@ _$EventState$ _$$EventState$FromJson(Map<String, dynamic> json) =>
             (k, e) => MapEntry(k, Event.fromJson(e as Map<String, dynamic>)),
           ) ??
           const <String, Event>{},
+      page: json['page'] == null
+          ? const Page()
+          : Page.fromJson(json['page'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$EventState$ToJson(_$EventState$ instance) =>
     <String, dynamic>{
       'events': instance.events,
+      'page': instance.page,
     };
 
 _$EAImage$ _$$EAImage$FromJson(Map<String, dynamic> json) => _$EAImage$(
@@ -61,10 +65,14 @@ Map<String, dynamic> _$$EAImage$ToJson(_$EAImage$ instance) =>
 
 _$StartDates$ _$$StartDates$FromJson(Map<String, dynamic> json) =>
     _$StartDates$(
-      dateTime: DateTime.parse(json['dateTime'] as String),
+      localDate: DateTime.parse(json['localDate'] as String),
+      dateTime: json['dateTime'] == null
+          ? null
+          : DateTime.parse(json['dateTime'] as String),
     );
 
 Map<String, dynamic> _$$StartDates$ToJson(_$StartDates$ instance) =>
     <String, dynamic>{
-      'dateTime': instance.dateTime.toIso8601String(),
+      'localDate': instance.localDate.toIso8601String(),
+      'dateTime': instance.dateTime?.toIso8601String(),
     };
