@@ -2376,3 +2376,120 @@ abstract class UnsaveEvent$ implements UnsaveEvent {
   _$$UnsaveEvent$CopyWith<_$UnsaveEvent$> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$UpdateFilter {
+  String? get keyword => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UpdateFilterCopyWith<UpdateFilter> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateFilterCopyWith<$Res> {
+  factory $UpdateFilterCopyWith(
+          UpdateFilter value, $Res Function(UpdateFilter) then) =
+      _$UpdateFilterCopyWithImpl<$Res, UpdateFilter>;
+  @useResult
+  $Res call({String? keyword});
+}
+
+/// @nodoc
+class _$UpdateFilterCopyWithImpl<$Res, $Val extends UpdateFilter>
+    implements $UpdateFilterCopyWith<$Res> {
+  _$UpdateFilterCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? keyword = freezed,
+  }) {
+    return _then(_value.copyWith(
+      keyword: freezed == keyword
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UpdateFilter$CopyWith<$Res>
+    implements $UpdateFilterCopyWith<$Res> {
+  factory _$$UpdateFilter$CopyWith(
+          _$UpdateFilter$ value, $Res Function(_$UpdateFilter$) then) =
+      __$$UpdateFilter$CopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? keyword});
+}
+
+/// @nodoc
+class __$$UpdateFilter$CopyWithImpl<$Res>
+    extends _$UpdateFilterCopyWithImpl<$Res, _$UpdateFilter$>
+    implements _$$UpdateFilter$CopyWith<$Res> {
+  __$$UpdateFilter$CopyWithImpl(
+      _$UpdateFilter$ _value, $Res Function(_$UpdateFilter$) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? keyword = freezed,
+  }) {
+    return _then(_$UpdateFilter$(
+      keyword: freezed == keyword
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateFilter$ implements UpdateFilter$ {
+  const _$UpdateFilter$({this.keyword});
+
+  @override
+  final String? keyword;
+
+  @override
+  String toString() {
+    return 'UpdateFilter(keyword: $keyword)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateFilter$ &&
+            (identical(other.keyword, keyword) || other.keyword == keyword));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, keyword);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateFilter$CopyWith<_$UpdateFilter$> get copyWith =>
+      __$$UpdateFilter$CopyWithImpl<_$UpdateFilter$>(this, _$identity);
+}
+
+abstract class UpdateFilter$ implements UpdateFilter {
+  const factory UpdateFilter$({final String? keyword}) = _$UpdateFilter$;
+
+  @override
+  String? get keyword;
+  @override
+  @JsonKey(ignore: true)
+  _$$UpdateFilter$CopyWith<_$UpdateFilter$> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -1,6 +1,7 @@
 import 'package:event_app/generated/l10n.dart';
 import 'package:event_app/src/containers/index.dart';
 import 'package:event_app/src/presentation/widgets/events_list.dart';
+import 'package:event_app/src/presentation/widgets/filter_widget.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -22,6 +23,8 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 24),
+              const FilterWidget(),
               const SizedBox(height: 24),
               SearchResultsContainer(
                 builder: (BuildContext context, SearchResultsViewModel vm) {

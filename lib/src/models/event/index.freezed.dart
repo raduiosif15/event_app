@@ -664,7 +664,9 @@ EventState _$EventStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EventState {
   Map<String, Event> get events => throw _privateConstructorUsedError;
+  Set<String> get searched => throw _privateConstructorUsedError;
   Set<String> get saved => throw _privateConstructorUsedError;
+  Filter get filter => throw _privateConstructorUsedError;
   Page get page => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -679,8 +681,14 @@ abstract class $EventStateCopyWith<$Res> {
           EventState value, $Res Function(EventState) then) =
       _$EventStateCopyWithImpl<$Res, EventState>;
   @useResult
-  $Res call({Map<String, Event> events, Set<String> saved, Page page});
+  $Res call(
+      {Map<String, Event> events,
+      Set<String> searched,
+      Set<String> saved,
+      Filter filter,
+      Page page});
 
+  $FilterCopyWith<$Res> get filter;
   $PageCopyWith<$Res> get page;
 }
 
@@ -698,7 +706,9 @@ class _$EventStateCopyWithImpl<$Res, $Val extends EventState>
   @override
   $Res call({
     Object? events = null,
+    Object? searched = null,
     Object? saved = null,
+    Object? filter = null,
     Object? page = null,
   }) {
     return _then(_value.copyWith(
@@ -706,15 +716,31 @@ class _$EventStateCopyWithImpl<$Res, $Val extends EventState>
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
+      searched: null == searched
+          ? _value.searched
+          : searched // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       saved: null == saved
           ? _value.saved
           : saved // ignore: cast_nullable_to_non_nullable
               as Set<String>,
+      filter: null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as Filter,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as Page,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FilterCopyWith<$Res> get filter {
+    return $FilterCopyWith<$Res>(_value.filter, (value) {
+      return _then(_value.copyWith(filter: value) as $Val);
+    });
   }
 
   @override
@@ -734,8 +760,15 @@ abstract class _$$EventState$CopyWith<$Res>
       __$$EventState$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, Event> events, Set<String> saved, Page page});
+  $Res call(
+      {Map<String, Event> events,
+      Set<String> searched,
+      Set<String> saved,
+      Filter filter,
+      Page page});
 
+  @override
+  $FilterCopyWith<$Res> get filter;
   @override
   $PageCopyWith<$Res> get page;
 }
@@ -752,7 +785,9 @@ class __$$EventState$CopyWithImpl<$Res>
   @override
   $Res call({
     Object? events = null,
+    Object? searched = null,
     Object? saved = null,
+    Object? filter = null,
     Object? page = null,
   }) {
     return _then(_$EventState$(
@@ -760,10 +795,18 @@ class __$$EventState$CopyWithImpl<$Res>
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
+      searched: null == searched
+          ? _value._searched
+          : searched // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       saved: null == saved
           ? _value._saved
           : saved // ignore: cast_nullable_to_non_nullable
               as Set<String>,
+      filter: null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as Filter,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -777,9 +820,12 @@ class __$$EventState$CopyWithImpl<$Res>
 class _$EventState$ implements EventState$ {
   const _$EventState$(
       {final Map<String, Event> events = const <String, Event>{},
+      final Set<String> searched = const <String>{},
       final Set<String> saved = const <String>{},
+      this.filter = const Filter(),
       this.page = const Page()})
       : _events = events,
+        _searched = searched,
         _saved = saved;
 
   factory _$EventState$.fromJson(Map<String, dynamic> json) =>
@@ -794,6 +840,15 @@ class _$EventState$ implements EventState$ {
     return EqualUnmodifiableMapView(_events);
   }
 
+  final Set<String> _searched;
+  @override
+  @JsonKey()
+  Set<String> get searched {
+    if (_searched is EqualUnmodifiableSetView) return _searched;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_searched);
+  }
+
   final Set<String> _saved;
   @override
   @JsonKey()
@@ -805,11 +860,14 @@ class _$EventState$ implements EventState$ {
 
   @override
   @JsonKey()
+  final Filter filter;
+  @override
+  @JsonKey()
   final Page page;
 
   @override
   String toString() {
-    return 'EventState(events: $events, saved: $saved, page: $page)';
+    return 'EventState(events: $events, searched: $searched, saved: $saved, filter: $filter, page: $page)';
   }
 
   @override
@@ -818,7 +876,9 @@ class _$EventState$ implements EventState$ {
         (other.runtimeType == runtimeType &&
             other is _$EventState$ &&
             const DeepCollectionEquality().equals(other._events, _events) &&
+            const DeepCollectionEquality().equals(other._searched, _searched) &&
             const DeepCollectionEquality().equals(other._saved, _saved) &&
+            (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.page, page) || other.page == page));
   }
 
@@ -827,7 +887,9 @@ class _$EventState$ implements EventState$ {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_events),
+      const DeepCollectionEquality().hash(_searched),
       const DeepCollectionEquality().hash(_saved),
+      filter,
       page);
 
   @JsonKey(ignore: true)
@@ -847,7 +909,9 @@ class _$EventState$ implements EventState$ {
 abstract class EventState$ implements EventState {
   const factory EventState$(
       {final Map<String, Event> events,
+      final Set<String> searched,
       final Set<String> saved,
+      final Filter filter,
       final Page page}) = _$EventState$;
 
   factory EventState$.fromJson(Map<String, dynamic> json) =
@@ -856,12 +920,146 @@ abstract class EventState$ implements EventState {
   @override
   Map<String, Event> get events;
   @override
+  Set<String> get searched;
+  @override
   Set<String> get saved;
+  @override
+  Filter get filter;
   @override
   Page get page;
   @override
   @JsonKey(ignore: true)
   _$$EventState$CopyWith<_$EventState$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Filter _$FilterFromJson(Map<String, dynamic> json) {
+  return Filter$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Filter {
+  String? get keyword => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FilterCopyWith<Filter> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FilterCopyWith<$Res> {
+  factory $FilterCopyWith(Filter value, $Res Function(Filter) then) =
+      _$FilterCopyWithImpl<$Res, Filter>;
+  @useResult
+  $Res call({String? keyword});
+}
+
+/// @nodoc
+class _$FilterCopyWithImpl<$Res, $Val extends Filter>
+    implements $FilterCopyWith<$Res> {
+  _$FilterCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? keyword = freezed,
+  }) {
+    return _then(_value.copyWith(
+      keyword: freezed == keyword
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$Filter$CopyWith<$Res> implements $FilterCopyWith<$Res> {
+  factory _$$Filter$CopyWith(_$Filter$ value, $Res Function(_$Filter$) then) =
+      __$$Filter$CopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? keyword});
+}
+
+/// @nodoc
+class __$$Filter$CopyWithImpl<$Res>
+    extends _$FilterCopyWithImpl<$Res, _$Filter$>
+    implements _$$Filter$CopyWith<$Res> {
+  __$$Filter$CopyWithImpl(_$Filter$ _value, $Res Function(_$Filter$) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? keyword = freezed,
+  }) {
+    return _then(_$Filter$(
+      keyword: freezed == keyword
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$Filter$ implements Filter$ {
+  const _$Filter$({this.keyword});
+
+  factory _$Filter$.fromJson(Map<String, dynamic> json) =>
+      _$$Filter$FromJson(json);
+
+  @override
+  final String? keyword;
+
+  @override
+  String toString() {
+    return 'Filter(keyword: $keyword)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Filter$ &&
+            (identical(other.keyword, keyword) || other.keyword == keyword));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, keyword);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$Filter$CopyWith<_$Filter$> get copyWith =>
+      __$$Filter$CopyWithImpl<_$Filter$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$Filter$ToJson(
+      this,
+    );
+  }
+}
+
+abstract class Filter$ implements Filter {
+  const factory Filter$({final String? keyword}) = _$Filter$;
+
+  factory Filter$.fromJson(Map<String, dynamic> json) = _$Filter$.fromJson;
+
+  @override
+  String? get keyword;
+  @override
+  @JsonKey(ignore: true)
+  _$$Filter$CopyWith<_$Filter$> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

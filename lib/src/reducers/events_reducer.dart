@@ -9,6 +9,7 @@ Reducer<EventState> eventsReducer = combineReducers(
     TypedReducer<EventState, GetSavedEventsSuccessful>(_getSavedEventsSuccessful).call,
     TypedReducer<EventState, SaveEvent>(_saveEvent).call,
     TypedReducer<EventState, UnsaveEvent>(_unsaveEvent).call,
+    TypedReducer<EventState, UpdateFilter>(_updateFilter).call,
   ],
 );
 
@@ -17,6 +18,10 @@ EventState _getEventsSuccessful(EventState state, GetEventsSuccessful action) {
     events: <String, Event>{
       if (!action.refresh) ...state.events,
       for (final Event event in action.events) event.id: event,
+    },
+    searched: <String>{
+      if (!action.refresh) ...state.searched,
+      for (final Event event in action.events) event.id,
     },
   );
 }
@@ -39,4 +44,12 @@ EventState _unsaveEvent(EventState state, UnsaveEvent action) {
   return state.copyWith(
     saved: Set<String>.unmodifiable(<String>{...state.saved}..remove(action.id)),
   );
+}
+
+EventState _updateFilter(EventState state, UpdateFilter action) {
+  if (action.keyword != null) {
+    return state.copyWith.filter(keyword: action.keyword);
+  }
+
+  return state.copyWith(filter: const Filter());
 }

@@ -27,7 +27,10 @@ class AppEpics implements EpicClass<AppState> {
           .asyncMap((_) {
         final int? page = action is GetEventsMore ? action.page : null;
 
-        return _api.getEvents(page: page);
+        return _api.getEvents(
+          page: page,
+          filter: store.state.events.filter,
+        );
       }).expand((PaginatedResult response) {
         return <AppAction>[
           GetEvents.successful(response.embedded.events, refresh: action.refresh, pendingId: action.pendingId),

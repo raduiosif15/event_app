@@ -13,7 +13,7 @@ class SearchResultsContainer extends StatelessWidget {
 
         return SearchResultsViewModel(
           allEvents: store.state.events.events,
-          searched: store.state.events.events.keys.toSet(),
+          searched: store.state.events.searched,
           isLoading: pending.contains(GetEvents.pendingKey),
           loadMore: () {
             final bool isLoading = pending.contains(GetEvents.pendingKey) || pending.contains(GetEvents.pendingKeyMore);

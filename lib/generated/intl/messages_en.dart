@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "app_title": MessageLookupByLibrary.simpleMessage("Event App"),
         "events": MessageLookupByLibrary.simpleMessage("Events"),
         "no_result": MessageLookupByLibrary.simpleMessage("No result"),
-        "no_results": MessageLookupByLibrary.simpleMessage("No results")
+        "no_results": MessageLookupByLibrary.simpleMessage("No results"),
+        "search": MessageLookupByLibrary.simpleMessage("Search")
       };
 }

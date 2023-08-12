@@ -65,9 +65,16 @@ _$EventState$ _$$EventState$FromJson(Map<String, dynamic> json) =>
             (k, e) => MapEntry(k, Event.fromJson(e as Map<String, dynamic>)),
           ) ??
           const <String, Event>{},
+      searched: (json['searched'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toSet() ??
+          const <String>{},
       saved:
           (json['saved'] as List<dynamic>?)?.map((e) => e as String).toSet() ??
               const <String>{},
+      filter: json['filter'] == null
+          ? const Filter()
+          : Filter.fromJson(json['filter'] as Map<String, dynamic>),
       page: json['page'] == null
           ? const Page()
           : Page.fromJson(json['page'] as Map<String, dynamic>),
@@ -76,8 +83,18 @@ _$EventState$ _$$EventState$FromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$EventState$ToJson(_$EventState$ instance) =>
     <String, dynamic>{
       'events': instance.events,
+      'searched': instance.searched.toList(),
       'saved': instance.saved.toList(),
+      'filter': instance.filter,
       'page': instance.page,
+    };
+
+_$Filter$ _$$Filter$FromJson(Map<String, dynamic> json) => _$Filter$(
+      keyword: json['keyword'] as String?,
+    );
+
+Map<String, dynamic> _$$Filter$ToJson(_$Filter$ instance) => <String, dynamic>{
+      'keyword': instance.keyword,
     };
 
 _$EAImage$ _$$EAImage$FromJson(Map<String, dynamic> json) => _$EAImage$(

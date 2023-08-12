@@ -3,5 +3,6 @@
   "app_title": "Event App",
   "events": "Events",
   "no_results": "No results",
-  "no_result": "No result"
+  "no_result": "No result",
+  "search": "Search"
 }
