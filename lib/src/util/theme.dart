@@ -22,6 +22,7 @@ class AppTheme {
     );
 
     return ThemeData(
+      primaryColor: AppColors.orange,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
@@ -66,6 +67,9 @@ class AppTheme {
         ),
       ),
       progressIndicatorTheme: themeData.progressIndicatorTheme.copyWith(
+        color: AppColors.orange,
+      ),
+      appBarTheme: themeData.appBarTheme.copyWith(
         color: AppColors.orange,
       ),
     );

@@ -185,6 +185,8 @@ mixin _$Event {
   String get name => throw _privateConstructorUsedError;
   Dates get dates => throw _privateConstructorUsedError;
   List<EAImage> get images => throw _privateConstructorUsedError;
+  String? get info => throw _privateConstructorUsedError;
+  List<PriceRange> get priceRanges => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -196,7 +198,13 @@ abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
-  $Res call({String id, String name, Dates dates, List<EAImage> images});
+  $Res call(
+      {String id,
+      String name,
+      Dates dates,
+      List<EAImage> images,
+      String? info,
+      List<PriceRange> priceRanges});
 
   $DatesCopyWith<$Res> get dates;
 }
@@ -218,6 +226,8 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? name = null,
     Object? dates = null,
     Object? images = null,
+    Object? info = freezed,
+    Object? priceRanges = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -236,6 +246,14 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<EAImage>,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
+      priceRanges: null == priceRanges
+          ? _value.priceRanges
+          : priceRanges // ignore: cast_nullable_to_non_nullable
+              as List<PriceRange>,
     ) as $Val);
   }
 
@@ -254,7 +272,13 @@ abstract class _$$Event$CopyWith<$Res> implements $EventCopyWith<$Res> {
       __$$Event$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, Dates dates, List<EAImage> images});
+  $Res call(
+      {String id,
+      String name,
+      Dates dates,
+      List<EAImage> images,
+      String? info,
+      List<PriceRange> priceRanges});
 
   @override
   $DatesCopyWith<$Res> get dates;
@@ -273,6 +297,8 @@ class __$$Event$CopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$Event$>
     Object? name = null,
     Object? dates = null,
     Object? images = null,
+    Object? info = freezed,
+    Object? priceRanges = null,
   }) {
     return _then(_$Event$(
       id: null == id
@@ -291,6 +317,14 @@ class __$$Event$CopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$Event$>
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<EAImage>,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
+      priceRanges: null == priceRanges
+          ? _value._priceRanges
+          : priceRanges // ignore: cast_nullable_to_non_nullable
+              as List<PriceRange>,
     ));
   }
 }
@@ -302,8 +336,11 @@ class _$Event$ implements Event$ {
       {required this.id,
       required this.name,
       required this.dates,
-      final List<EAImage> images = const <EAImage>[]})
-      : _images = images;
+      final List<EAImage> images = const <EAImage>[],
+      this.info,
+      final List<PriceRange> priceRanges = const <PriceRange>[]})
+      : _images = images,
+        _priceRanges = priceRanges;
 
   factory _$Event$.fromJson(Map<String, dynamic> json) =>
       _$$Event$FromJson(json);
@@ -324,8 +361,19 @@ class _$Event$ implements Event$ {
   }
 
   @override
+  final String? info;
+  final List<PriceRange> _priceRanges;
+  @override
+  @JsonKey()
+  List<PriceRange> get priceRanges {
+    if (_priceRanges is EqualUnmodifiableListView) return _priceRanges;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_priceRanges);
+  }
+
+  @override
   String toString() {
-    return 'Event(id: $id, name: $name, dates: $dates, images: $images)';
+    return 'Event(id: $id, name: $name, dates: $dates, images: $images, info: $info, priceRanges: $priceRanges)';
   }
 
   @override
@@ -336,13 +384,22 @@ class _$Event$ implements Event$ {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.dates, dates) || other.dates == dates) &&
-            const DeepCollectionEquality().equals(other._images, _images));
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.info, info) || other.info == info) &&
+            const DeepCollectionEquality()
+                .equals(other._priceRanges, _priceRanges));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, dates,
-      const DeepCollectionEquality().hash(_images));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      dates,
+      const DeepCollectionEquality().hash(_images),
+      info,
+      const DeepCollectionEquality().hash(_priceRanges));
 
   @JsonKey(ignore: true)
   @override
@@ -363,7 +420,9 @@ abstract class Event$ implements Event {
       {required final String id,
       required final String name,
       required final Dates dates,
-      final List<EAImage> images}) = _$Event$;
+      final List<EAImage> images,
+      final String? info,
+      final List<PriceRange> priceRanges}) = _$Event$;
 
   factory Event$.fromJson(Map<String, dynamic> json) = _$Event$.fromJson;
 
@@ -376,8 +435,205 @@ abstract class Event$ implements Event {
   @override
   List<EAImage> get images;
   @override
+  String? get info;
+  @override
+  List<PriceRange> get priceRanges;
+  @override
   @JsonKey(ignore: true)
   _$$Event$CopyWith<_$Event$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PriceRange _$PriceRangeFromJson(Map<String, dynamic> json) {
+  return PriceRange$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PriceRange {
+  String get type => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
+  double get min => throw _privateConstructorUsedError;
+  double get max => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PriceRangeCopyWith<PriceRange> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PriceRangeCopyWith<$Res> {
+  factory $PriceRangeCopyWith(
+          PriceRange value, $Res Function(PriceRange) then) =
+      _$PriceRangeCopyWithImpl<$Res, PriceRange>;
+  @useResult
+  $Res call({String type, String currency, double min, double max});
+}
+
+/// @nodoc
+class _$PriceRangeCopyWithImpl<$Res, $Val extends PriceRange>
+    implements $PriceRangeCopyWith<$Res> {
+  _$PriceRangeCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? currency = null,
+    Object? min = null,
+    Object? max = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      min: null == min
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
+              as double,
+      max: null == max
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as double,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PriceRange$CopyWith<$Res>
+    implements $PriceRangeCopyWith<$Res> {
+  factory _$$PriceRange$CopyWith(
+          _$PriceRange$ value, $Res Function(_$PriceRange$) then) =
+      __$$PriceRange$CopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String type, String currency, double min, double max});
+}
+
+/// @nodoc
+class __$$PriceRange$CopyWithImpl<$Res>
+    extends _$PriceRangeCopyWithImpl<$Res, _$PriceRange$>
+    implements _$$PriceRange$CopyWith<$Res> {
+  __$$PriceRange$CopyWithImpl(
+      _$PriceRange$ _value, $Res Function(_$PriceRange$) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? currency = null,
+    Object? min = null,
+    Object? max = null,
+  }) {
+    return _then(_$PriceRange$(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      min: null == min
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
+              as double,
+      max: null == max
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PriceRange$ implements PriceRange$ {
+  const _$PriceRange$(
+      {required this.type,
+      required this.currency,
+      required this.min,
+      required this.max});
+
+  factory _$PriceRange$.fromJson(Map<String, dynamic> json) =>
+      _$$PriceRange$FromJson(json);
+
+  @override
+  final String type;
+  @override
+  final String currency;
+  @override
+  final double min;
+  @override
+  final double max;
+
+  @override
+  String toString() {
+    return 'PriceRange(type: $type, currency: $currency, min: $min, max: $max)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PriceRange$ &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency) &&
+            (identical(other.min, min) || other.min == min) &&
+            (identical(other.max, max) || other.max == max));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, currency, min, max);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PriceRange$CopyWith<_$PriceRange$> get copyWith =>
+      __$$PriceRange$CopyWithImpl<_$PriceRange$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PriceRange$ToJson(
+      this,
+    );
+  }
+}
+
+abstract class PriceRange$ implements PriceRange {
+  const factory PriceRange$(
+      {required final String type,
+      required final String currency,
+      required final double min,
+      required final double max}) = _$PriceRange$;
+
+  factory PriceRange$.fromJson(Map<String, dynamic> json) =
+      _$PriceRange$.fromJson;
+
+  @override
+  String get type;
+  @override
+  String get currency;
+  @override
+  double get min;
+  @override
+  double get max;
+  @override
+  @JsonKey(ignore: true)
+  _$$PriceRange$CopyWith<_$PriceRange$> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

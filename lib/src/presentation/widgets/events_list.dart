@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:event_app/generated/l10n.dart';
 import 'package:event_app/src/containers/index.dart';
 import 'package:event_app/src/models/event/index.dart';
-import 'package:event_app/src/presentation/events/event_card.dart';
+import 'package:event_app/src/presentation/widgets/event_card.dart';
 import 'package:event_app/src/util/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

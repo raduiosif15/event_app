@@ -1,6 +1,6 @@
 import 'package:event_app/generated/l10n.dart';
 import 'package:event_app/src/containers/index.dart';
-import 'package:event_app/src/presentation/events/events_list.dart';
+import 'package:event_app/src/presentation/widgets/events_list.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
