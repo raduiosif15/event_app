@@ -2,9 +2,11 @@ import 'package:event_app/src/actions/index.dart';
 import 'package:event_app/src/data/events_api.dart';
 import 'package:event_app/src/data/index.dart';
 import 'package:event_app/src/models/index.dart';
+import 'package:injectable/injectable.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
+@injectable
 class AppEpics implements EpicClass<AppState> {
   const AppEpics({required EventsApi api}) : _api = api;
 

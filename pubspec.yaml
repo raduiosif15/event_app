@@ -11,6 +11,9 @@ dependencies:
   cupertino_icons: ^1.0.5
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_redux: ^0.10.0
   freezed_annotation: ^2.4.1
   get_it: ^7.6.0
   http: ^1.1.0
@@ -30,7 +33,16 @@ dev_dependencies:
   json_serializable: ^6.7.1
   very_good_analysis: ^5.0.0+1
 
+flutter_intl:
+  enabled: true
+  arb_dir: assets/l10n
+
 flutter:
   uses-material-design: true
   assets:
+    - assets/font/
     - .private
+  fonts:
+    - family: TiemposHeadline
+      fonts:
+        - asset: assets/font/TiemposHeadline-Regular.otf

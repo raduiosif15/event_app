@@ -10,6 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:event_app/src/data/events_api.dart' as _i3;
+import 'package:event_app/src/epics/app_epics.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:http/http.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
@@ -30,6 +31,7 @@ extension GetItInjectableX on _i1.GetIt {
           host: gh<String>(instanceName: 'host'),
           apiKey: gh<String>(instanceName: 'apiKey'),
         ));
+    gh.factory<_i5.AppEpics>(() => _i5.AppEpics(api: gh<_i3.EventsApi>()));
     return this;
   }
 }

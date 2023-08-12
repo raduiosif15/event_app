@@ -1,4 +1,4 @@
 flutter_dir: ./
 
 api_config:
-  base_host: https://app.ticketmaster.com/discovery/v2/
+  base_host: app.ticketmaster.com

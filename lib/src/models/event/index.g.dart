@@ -8,7 +8,7 @@ part of 'index.dart';
 
 _$Dates$ _$$Dates$FromJson(Map<String, dynamic> json) => _$Dates$(
       start: StartDates.fromJson(json['start'] as Map<String, dynamic>),
-      timezone: json['timezone'] as String,
+      timezone: json['timezone'] as String?,
     );
 
 Map<String, dynamic> _$$Dates$ToJson(_$Dates$ instance) => <String, dynamic>{

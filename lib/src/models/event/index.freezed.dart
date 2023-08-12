@@ -21,7 +21,7 @@ Dates _$DatesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Dates {
   StartDates get start => throw _privateConstructorUsedError;
-  String get timezone => throw _privateConstructorUsedError;
+  String? get timezone => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $DatesCopyWith<$Res> {
   factory $DatesCopyWith(Dates value, $Res Function(Dates) then) =
       _$DatesCopyWithImpl<$Res, Dates>;
   @useResult
-  $Res call({StartDates start, String timezone});
+  $Res call({StartDates start, String? timezone});
 
   $StartDatesCopyWith<$Res> get start;
 }
@@ -52,17 +52,17 @@ class _$DatesCopyWithImpl<$Res, $Val extends Dates>
   @override
   $Res call({
     Object? start = null,
-    Object? timezone = null,
+    Object? timezone = freezed,
   }) {
     return _then(_value.copyWith(
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
               as StartDates,
-      timezone: null == timezone
+      timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
@@ -81,7 +81,7 @@ abstract class _$$Dates$CopyWith<$Res> implements $DatesCopyWith<$Res> {
       __$$Dates$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StartDates start, String timezone});
+  $Res call({StartDates start, String? timezone});
 
   @override
   $StartDatesCopyWith<$Res> get start;
@@ -97,17 +97,17 @@ class __$$Dates$CopyWithImpl<$Res> extends _$DatesCopyWithImpl<$Res, _$Dates$>
   @override
   $Res call({
     Object? start = null,
-    Object? timezone = null,
+    Object? timezone = freezed,
   }) {
     return _then(_$Dates$(
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
               as StartDates,
-      timezone: null == timezone
+      timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -123,7 +123,7 @@ class _$Dates$ implements Dates$ {
   @override
   final StartDates start;
   @override
-  final String timezone;
+  final String? timezone;
 
   @override
   String toString() {
@@ -161,14 +161,14 @@ class _$Dates$ implements Dates$ {
 abstract class Dates$ implements Dates {
   const factory Dates$(
       {required final StartDates start,
-      required final String timezone}) = _$Dates$;
+      required final String? timezone}) = _$Dates$;
 
   factory Dates$.fromJson(Map<String, dynamic> json) = _$Dates$.fromJson;
 
   @override
   StartDates get start;
   @override
-  String get timezone;
+  String? get timezone;
   @override
   @JsonKey(ignore: true)
   _$$Dates$CopyWith<_$Dates$> get copyWith =>

@@ -19,7 +19,9 @@ class EventsApi {
   final String _apiKey;
 
   Future<PaginatedResult> getEvents() async {
-    final Uri url = Uri.https(_host, '/events.json?apikey=$_apiKey');
+    final Map<String, dynamic> queryParameters = <String, dynamic>{'apikey': _apiKey};
+
+    final Uri url = Uri.https(_host, '/discovery/v2/events.json', queryParameters);
     final Response result = await _client.get(url);
 
     if (result.statusCode != 200) {

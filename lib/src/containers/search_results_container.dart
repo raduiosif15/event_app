@@ -1,0 +1,42 @@
+part of 'index.dart';
+
+class SearchResultsContainer extends StatelessWidget {
+  const SearchResultsContainer({required this.builder, super.key});
+
+  final ViewModelBuilder<SearchResultsViewModel> builder;
+
+  @override
+  Widget build(BuildContext context) {
+    return StoreConnector<AppState, SearchResultsViewModel>(
+      converter: (Store<AppState> store) {
+        final Set<String> pending = store.state.pending;
+
+        return SearchResultsViewModel(
+          allEvents: store.state.events.events,
+          searchEvents: store.state.events.events.keys.toList(),
+          isLoading: pending.contains(GetEvents.pendingKey),
+          loadMore: () {
+            final bool isLoading = pending.contains(GetEvents.pendingKey) || pending.contains(GetEvents.pendingKeyMore);
+
+            if (isLoading) {
+              return;
+            }
+
+            // context.dispatch(GetEvents.more(/*page:*/));
+          },
+        );
+      },
+      builder: builder,
+    );
+  }
+}
+
+@freezed
+class SearchResultsViewModel with _$SearchResultsViewModel {
+  const factory SearchResultsViewModel({
+    required Map<String, Event> allEvents,
+    required List<String> searchEvents,
+    required bool isLoading,
+    required VoidCallback loadMore,
+  }) = SearchResultsViewModel$;
+}
