@@ -30,7 +30,6 @@ linter:
     lines_longer_than_80_chars: false
     omit_local_variable_types: false
     prefer_foreach: true
-    prefer_int_literals: false
     parameter_assignments: false
     public_member_api_docs: false
     unnecessary_constructor_name: true

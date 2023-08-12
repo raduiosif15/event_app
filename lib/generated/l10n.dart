@@ -69,6 +69,16 @@ class S {
       args: [],
     );
   }
+
+  /// `No results`
+  String get no_results {
+    return Intl.message(
+      'No results',
+      name: 'no_results',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -21,9 +21,9 @@ _$Event$ _$$Event$FromJson(Map<String, dynamic> json) => _$Event$(
       name: json['name'] as String,
       dates: Dates.fromJson(json['dates'] as Map<String, dynamic>),
       images: (json['images'] as List<dynamic>?)
-              ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => EAImage.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <Image>[],
+          const <EAImage>[],
     );
 
 Map<String, dynamic> _$$Event$ToJson(_$Event$ instance) => <String, dynamic>{
@@ -46,13 +46,14 @@ Map<String, dynamic> _$$EventState$ToJson(_$EventState$ instance) =>
       'events': instance.events,
     };
 
-_$Image$ _$$Image$FromJson(Map<String, dynamic> json) => _$Image$(
+_$EAImage$ _$$EAImage$FromJson(Map<String, dynamic> json) => _$EAImage$(
       url: json['url'] as String,
       width: json['width'] as int,
       height: json['height'] as int,
     );
 
-Map<String, dynamic> _$$Image$ToJson(_$Image$ instance) => <String, dynamic>{
+Map<String, dynamic> _$$EAImage$ToJson(_$EAImage$ instance) =>
+    <String, dynamic>{
       'url': instance.url,
       'width': instance.width,
       'height': instance.height,

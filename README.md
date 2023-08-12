@@ -11,7 +11,7 @@
 - Models&Actions: freezed
 - Api calls: dio
 - Dependency injection: injectable, get_it
-- Useful tools: upcode_ci 
+- Useful tools: upcode_ci (especially for skipping generated code on format)
 
 ### Build runner
 

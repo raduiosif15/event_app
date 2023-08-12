@@ -184,7 +184,7 @@ mixin _$Event {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   Dates get dates => throw _privateConstructorUsedError;
-  List<Image> get images => throw _privateConstructorUsedError;
+  List<EAImage> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -196,7 +196,7 @@ abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
-  $Res call({String id, String name, Dates dates, List<Image> images});
+  $Res call({String id, String name, Dates dates, List<EAImage> images});
 
   $DatesCopyWith<$Res> get dates;
 }
@@ -235,7 +235,7 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<Image>,
+              as List<EAImage>,
     ) as $Val);
   }
 
@@ -254,7 +254,7 @@ abstract class _$$Event$CopyWith<$Res> implements $EventCopyWith<$Res> {
       __$$Event$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, Dates dates, List<Image> images});
+  $Res call({String id, String name, Dates dates, List<EAImage> images});
 
   @override
   $DatesCopyWith<$Res> get dates;
@@ -290,7 +290,7 @@ class __$$Event$CopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$Event$>
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<Image>,
+              as List<EAImage>,
     ));
   }
 }
@@ -302,7 +302,7 @@ class _$Event$ implements Event$ {
       {required this.id,
       required this.name,
       required this.dates,
-      final List<Image> images = const <Image>[]})
+      final List<EAImage> images = const <EAImage>[]})
       : _images = images;
 
   factory _$Event$.fromJson(Map<String, dynamic> json) =>
@@ -314,10 +314,10 @@ class _$Event$ implements Event$ {
   final String name;
   @override
   final Dates dates;
-  final List<Image> _images;
+  final List<EAImage> _images;
   @override
   @JsonKey()
-  List<Image> get images {
+  List<EAImage> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_images);
@@ -363,7 +363,7 @@ abstract class Event$ implements Event {
       {required final String id,
       required final String name,
       required final Dates dates,
-      final List<Image> images}) = _$Event$;
+      final List<EAImage> images}) = _$Event$;
 
   factory Event$.fromJson(Map<String, dynamic> json) = _$Event$.fromJson;
 
@@ -374,7 +374,7 @@ abstract class Event$ implements Event {
   @override
   Dates get dates;
   @override
-  List<Image> get images;
+  List<EAImage> get images;
   @override
   @JsonKey(ignore: true)
   _$$Event$CopyWith<_$Event$> get copyWith =>
@@ -526,33 +526,33 @@ abstract class EventState$ implements EventState {
       throw _privateConstructorUsedError;
 }
 
-Image _$ImageFromJson(Map<String, dynamic> json) {
-  return Image$.fromJson(json);
+EAImage _$EAImageFromJson(Map<String, dynamic> json) {
+  return EAImage$.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Image {
+mixin _$EAImage {
   String get url => throw _privateConstructorUsedError;
   int get width => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImageCopyWith<Image> get copyWith => throw _privateConstructorUsedError;
+  $EAImageCopyWith<EAImage> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImageCopyWith<$Res> {
-  factory $ImageCopyWith(Image value, $Res Function(Image) then) =
-      _$ImageCopyWithImpl<$Res, Image>;
+abstract class $EAImageCopyWith<$Res> {
+  factory $EAImageCopyWith(EAImage value, $Res Function(EAImage) then) =
+      _$EAImageCopyWithImpl<$Res, EAImage>;
   @useResult
   $Res call({String url, int width, int height});
 }
 
 /// @nodoc
-class _$ImageCopyWithImpl<$Res, $Val extends Image>
-    implements $ImageCopyWith<$Res> {
-  _$ImageCopyWithImpl(this._value, this._then);
+class _$EAImageCopyWithImpl<$Res, $Val extends EAImage>
+    implements $EAImageCopyWith<$Res> {
+  _$EAImageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -584,18 +584,20 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
 }
 
 /// @nodoc
-abstract class _$$Image$CopyWith<$Res> implements $ImageCopyWith<$Res> {
-  factory _$$Image$CopyWith(_$Image$ value, $Res Function(_$Image$) then) =
-      __$$Image$CopyWithImpl<$Res>;
+abstract class _$$EAImage$CopyWith<$Res> implements $EAImageCopyWith<$Res> {
+  factory _$$EAImage$CopyWith(
+          _$EAImage$ value, $Res Function(_$EAImage$) then) =
+      __$$EAImage$CopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String url, int width, int height});
 }
 
 /// @nodoc
-class __$$Image$CopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$Image$>
-    implements _$$Image$CopyWith<$Res> {
-  __$$Image$CopyWithImpl(_$Image$ _value, $Res Function(_$Image$) _then)
+class __$$EAImage$CopyWithImpl<$Res>
+    extends _$EAImageCopyWithImpl<$Res, _$EAImage$>
+    implements _$$EAImage$CopyWith<$Res> {
+  __$$EAImage$CopyWithImpl(_$EAImage$ _value, $Res Function(_$EAImage$) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -605,7 +607,7 @@ class __$$Image$CopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$Image$>
     Object? width = null,
     Object? height = null,
   }) {
-    return _then(_$Image$(
+    return _then(_$EAImage$(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -624,12 +626,12 @@ class __$$Image$CopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$Image$>
 
 /// @nodoc
 @JsonSerializable()
-class _$Image$ implements Image$ {
-  const _$Image$(
+class _$EAImage$ implements EAImage$ {
+  const _$EAImage$(
       {required this.url, required this.width, required this.height});
 
-  factory _$Image$.fromJson(Map<String, dynamic> json) =>
-      _$$Image$FromJson(json);
+  factory _$EAImage$.fromJson(Map<String, dynamic> json) =>
+      _$$EAImage$FromJson(json);
 
   @override
   final String url;
@@ -640,14 +642,14 @@ class _$Image$ implements Image$ {
 
   @override
   String toString() {
-    return 'Image(url: $url, width: $width, height: $height)';
+    return 'EAImage(url: $url, width: $width, height: $height)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Image$ &&
+            other is _$EAImage$ &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height));
@@ -660,24 +662,24 @@ class _$Image$ implements Image$ {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$Image$CopyWith<_$Image$> get copyWith =>
-      __$$Image$CopyWithImpl<_$Image$>(this, _$identity);
+  _$$EAImage$CopyWith<_$EAImage$> get copyWith =>
+      __$$EAImage$CopyWithImpl<_$EAImage$>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$Image$ToJson(
+    return _$$EAImage$ToJson(
       this,
     );
   }
 }
 
-abstract class Image$ implements Image {
-  const factory Image$(
+abstract class EAImage$ implements EAImage {
+  const factory EAImage$(
       {required final String url,
       required final int width,
-      required final int height}) = _$Image$;
+      required final int height}) = _$EAImage$;
 
-  factory Image$.fromJson(Map<String, dynamic> json) = _$Image$.fromJson;
+  factory EAImage$.fromJson(Map<String, dynamic> json) = _$EAImage$.fromJson;
 
   @override
   String get url;
@@ -687,7 +689,7 @@ abstract class Image$ implements Image {
   int get height;
   @override
   @JsonKey(ignore: true)
-  _$$Image$CopyWith<_$Image$> get copyWith =>
+  _$$EAImage$CopyWith<_$EAImage$> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
