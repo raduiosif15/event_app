@@ -47,7 +47,7 @@ class _EventsListState extends State<EventsList> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    if (widget.vm.searchEvents.isEmpty) {
+    if (widget.vm.searched.isEmpty) {
       return NoResultWidget(text: S.of(context).no_results);
     }
 
@@ -57,14 +57,14 @@ class _EventsListState extends State<EventsList> {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              final Event event = widget.vm.allEvents[widget.vm.searchEvents[index]]!;
+              final Event event = widget.vm.allEvents[widget.vm.searched.elementAt(index)]!;
 
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: EventCard(event: event),
               );
             },
-            childCount: widget.vm.searchEvents.length,
+            childCount: widget.vm.searched.length,
           ),
         ),
       ],

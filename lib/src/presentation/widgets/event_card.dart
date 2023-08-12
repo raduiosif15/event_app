@@ -1,5 +1,6 @@
 import 'package:event_app/src/models/event/index.dart';
 import 'package:event_app/src/presentation/widgets/event_image.dart';
+import 'package:event_app/src/presentation/widgets/favourite_icon_widget.dart';
 import 'package:event_app/src/util/assets.dart';
 import 'package:event_app/src/util/extensions.dart';
 import 'package:event_app/src/util/routes.dart';
@@ -61,7 +62,7 @@ class EventCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(Icons.favorite_border),
+              FavouriteIconWidget(id: event.id),
             ],
           ),
         ),

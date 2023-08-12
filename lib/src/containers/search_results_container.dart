@@ -13,7 +13,7 @@ class SearchResultsContainer extends StatelessWidget {
 
         return SearchResultsViewModel(
           allEvents: store.state.events.events,
-          searchEvents: store.state.events.events.keys.toList(),
+          searched: store.state.events.events.keys.toSet(),
           isLoading: pending.contains(GetEvents.pendingKey),
           loadMore: () {
             final bool isLoading = pending.contains(GetEvents.pendingKey) || pending.contains(GetEvents.pendingKeyMore);
@@ -42,7 +42,7 @@ class SearchResultsContainer extends StatelessWidget {
 class SearchResultsViewModel with _$SearchResultsViewModel {
   const factory SearchResultsViewModel({
     required Map<String, Event> allEvents,
-    required List<String> searchEvents,
+    required Set<String> searched,
     required bool isLoading,
     required VoidCallback loadMore,
   }) = SearchResultsViewModel$;

@@ -6,6 +6,9 @@ Reducer<EventState> eventsReducer = combineReducers(
   <Reducer<EventState>>[
     TypedReducer<EventState, GetEventsSuccessful>(_getEventsSuccessful).call,
     TypedReducer<EventState, SetPage>(_setPage).call,
+    TypedReducer<EventState, GetSavedEventsSuccessful>(_getSavedEventsSuccessful).call,
+    TypedReducer<EventState, SaveEvent>(_saveEvent).call,
+    TypedReducer<EventState, UnsaveEvent>(_unsaveEvent).call,
   ],
 );
 
@@ -20,4 +23,20 @@ EventState _getEventsSuccessful(EventState state, GetEventsSuccessful action) {
 
 EventState _setPage(EventState state, SetPage action) {
   return state.copyWith(page: action.page);
+}
+
+EventState _getSavedEventsSuccessful(EventState state, GetSavedEventsSuccessful action) {
+  return state.copyWith(saved: action.saved.toSet());
+}
+
+EventState _saveEvent(EventState state, SaveEvent action) {
+  return state.copyWith(
+    saved: Set<String>.unmodifiable(<String>{...state.saved, action.id}),
+  );
+}
+
+EventState _unsaveEvent(EventState state, UnsaveEvent action) {
+  return state.copyWith(
+    saved: Set<String>.unmodifiable(<String>{...state.saved}..remove(action.id)),
+  );
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:event_app/src/data/index.dart';
 import 'package:event_app/src/models/event/index.dart';
+import 'package:hive/hive.dart';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,13 +12,16 @@ class EventsApi {
     required Client client,
     @Named('host') required String host,
     @Named('apiKey') required String apiKey,
+    required Box<String> savedEvents,
   })  : _client = client,
         _host = host,
-        _apiKey = apiKey;
+        _apiKey = apiKey,
+        _savedEvents = savedEvents;
 
   final Client _client;
   final String _host;
   final String _apiKey;
+  final Box<String> _savedEvents;
 
   Future<PaginatedResult> getEvents({int? page}) async {
     final Map<String, dynamic> queryParameters = <String, dynamic>{
@@ -50,5 +54,21 @@ class EventsApi {
     final Map<String, dynamic> body = jsonDecode(result.body) as Map<String, dynamic>;
 
     return EventDetailed.fromJson(body);
+  }
+
+  Future<List<String>> getSavedEvents() async {
+    if (_savedEvents.values.isEmpty) {
+      return <String>[];
+    }
+
+    return _savedEvents.values.toList();
+  }
+
+  Future<void> saveEvent(String eventId) async {
+    await _savedEvents.add(eventId);
+  }
+
+  Future<void> unsaveEvent(String eventId) async {
+    await _savedEvents.delete(eventId);
   }
 }

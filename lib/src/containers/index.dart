@@ -8,4 +8,5 @@ import 'package:redux/redux.dart';
 
 part 'index.freezed.dart';
 part 'pending_container.dart';
+part 'saved_container.dart';
 part 'search_results_container.dart';

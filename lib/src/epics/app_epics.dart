@@ -17,6 +17,7 @@ class AppEpics implements EpicClass<AppState> {
     return combineEpics<AppState>(<Epic<AppState>>[
       TypedEpic<AppState, GetEventsAction>(_getEvents).call,
       TypedEpic<AppState, GetEventStart>(_getEvent).call,
+      TypedEpic<AppState, GetSavedEventsStart>(_getSavedEventsStart).call,
     ])(actions, store);
   }
 
@@ -45,6 +46,15 @@ class AppEpics implements EpicClass<AppState> {
           .map(GetEvent.successful)
           .onErrorReturnWith(GetEvent.error)
           .doOnData(action.result);
+    });
+  }
+
+  Stream<AppAction> _getSavedEventsStart(Stream<GetSavedEventsStart> actions, EpicStore<AppState> store) {
+    return actions.flatMap((GetSavedEventsStart action) {
+      return Stream<void>.value(null) //
+          .asyncMap((_) => _api.getSavedEvents())
+          .map(GetSavedEvents.successful)
+          .onErrorReturnWith(GetSavedEvents.error);
     });
   }
 }

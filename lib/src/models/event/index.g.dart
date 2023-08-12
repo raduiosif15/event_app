@@ -65,6 +65,9 @@ _$EventState$ _$$EventState$FromJson(Map<String, dynamic> json) =>
             (k, e) => MapEntry(k, Event.fromJson(e as Map<String, dynamic>)),
           ) ??
           const <String, Event>{},
+      saved:
+          (json['saved'] as List<dynamic>?)?.map((e) => e as String).toSet() ??
+              const <String>{},
       page: json['page'] == null
           ? const Page()
           : Page.fromJson(json['page'] as Map<String, dynamic>),
@@ -73,6 +76,7 @@ _$EventState$ _$$EventState$FromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$EventState$ToJson(_$EventState$ instance) =>
     <String, dynamic>{
       'events': instance.events,
+      'saved': instance.saved.toList(),
       'page': instance.page,
     };
 

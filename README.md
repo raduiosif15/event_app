@@ -20,3 +20,7 @@ To generate (regenerate) the serializable models
 ```bash
 $ flutter pub run build_runner build --delete-conflicting-outputs
 ```
+
+### Wishlist
+
+- Event ids are saved in local storage of device, through package Hive 

@@ -4,6 +4,7 @@ part of 'index.dart';
 class EventState with _$EventState {
   const factory EventState({
     @Default(<String, Event>{}) Map<String, Event> events,
+    @Default(<String>{}) Set<String> saved,
     @Default(Page()) Page page,
   }) = EventState$;
 

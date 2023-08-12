@@ -664,6 +664,7 @@ EventState _$EventStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EventState {
   Map<String, Event> get events => throw _privateConstructorUsedError;
+  Set<String> get saved => throw _privateConstructorUsedError;
   Page get page => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -678,7 +679,7 @@ abstract class $EventStateCopyWith<$Res> {
           EventState value, $Res Function(EventState) then) =
       _$EventStateCopyWithImpl<$Res, EventState>;
   @useResult
-  $Res call({Map<String, Event> events, Page page});
+  $Res call({Map<String, Event> events, Set<String> saved, Page page});
 
   $PageCopyWith<$Res> get page;
 }
@@ -697,6 +698,7 @@ class _$EventStateCopyWithImpl<$Res, $Val extends EventState>
   @override
   $Res call({
     Object? events = null,
+    Object? saved = null,
     Object? page = null,
   }) {
     return _then(_value.copyWith(
@@ -704,6 +706,10 @@ class _$EventStateCopyWithImpl<$Res, $Val extends EventState>
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
+      saved: null == saved
+          ? _value.saved
+          : saved // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -728,7 +734,7 @@ abstract class _$$EventState$CopyWith<$Res>
       __$$EventState$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, Event> events, Page page});
+  $Res call({Map<String, Event> events, Set<String> saved, Page page});
 
   @override
   $PageCopyWith<$Res> get page;
@@ -746,6 +752,7 @@ class __$$EventState$CopyWithImpl<$Res>
   @override
   $Res call({
     Object? events = null,
+    Object? saved = null,
     Object? page = null,
   }) {
     return _then(_$EventState$(
@@ -753,6 +760,10 @@ class __$$EventState$CopyWithImpl<$Res>
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
+      saved: null == saved
+          ? _value._saved
+          : saved // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -766,8 +777,10 @@ class __$$EventState$CopyWithImpl<$Res>
 class _$EventState$ implements EventState$ {
   const _$EventState$(
       {final Map<String, Event> events = const <String, Event>{},
+      final Set<String> saved = const <String>{},
       this.page = const Page()})
-      : _events = events;
+      : _events = events,
+        _saved = saved;
 
   factory _$EventState$.fromJson(Map<String, dynamic> json) =>
       _$$EventState$FromJson(json);
@@ -781,13 +794,22 @@ class _$EventState$ implements EventState$ {
     return EqualUnmodifiableMapView(_events);
   }
 
+  final Set<String> _saved;
+  @override
+  @JsonKey()
+  Set<String> get saved {
+    if (_saved is EqualUnmodifiableSetView) return _saved;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_saved);
+  }
+
   @override
   @JsonKey()
   final Page page;
 
   @override
   String toString() {
-    return 'EventState(events: $events, page: $page)';
+    return 'EventState(events: $events, saved: $saved, page: $page)';
   }
 
   @override
@@ -796,13 +818,17 @@ class _$EventState$ implements EventState$ {
         (other.runtimeType == runtimeType &&
             other is _$EventState$ &&
             const DeepCollectionEquality().equals(other._events, _events) &&
+            const DeepCollectionEquality().equals(other._saved, _saved) &&
             (identical(other.page, page) || other.page == page));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_events), page);
+      runtimeType,
+      const DeepCollectionEquality().hash(_events),
+      const DeepCollectionEquality().hash(_saved),
+      page);
 
   @JsonKey(ignore: true)
   @override
@@ -820,13 +846,17 @@ class _$EventState$ implements EventState$ {
 
 abstract class EventState$ implements EventState {
   const factory EventState$(
-      {final Map<String, Event> events, final Page page}) = _$EventState$;
+      {final Map<String, Event> events,
+      final Set<String> saved,
+      final Page page}) = _$EventState$;
 
   factory EventState$.fromJson(Map<String, dynamic> json) =
       _$EventState$.fromJson;
 
   @override
   Map<String, Event> get events;
+  @override
+  Set<String> get saved;
   @override
   Page get page;
   @override

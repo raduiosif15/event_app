@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SearchResultsViewModel {
   Map<String, Event> get allEvents => throw _privateConstructorUsedError;
-  List<String> get searchEvents => throw _privateConstructorUsedError;
+  Set<String> get searched => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   VoidCallback get loadMore => throw _privateConstructorUsedError;
 
@@ -34,7 +34,7 @@ abstract class $SearchResultsViewModelCopyWith<$Res> {
   @useResult
   $Res call(
       {Map<String, Event> allEvents,
-      List<String> searchEvents,
+      Set<String> searched,
       bool isLoading,
       VoidCallback loadMore});
 }
@@ -54,7 +54,7 @@ class _$SearchResultsViewModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? allEvents = null,
-    Object? searchEvents = null,
+    Object? searched = null,
     Object? isLoading = null,
     Object? loadMore = null,
   }) {
@@ -63,10 +63,10 @@ class _$SearchResultsViewModelCopyWithImpl<$Res,
           ? _value.allEvents
           : allEvents // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
-      searchEvents: null == searchEvents
-          ? _value.searchEvents
-          : searchEvents // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      searched: null == searched
+          ? _value.searched
+          : searched // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -89,7 +89,7 @@ abstract class _$$SearchResultsViewModel$CopyWith<$Res>
   @useResult
   $Res call(
       {Map<String, Event> allEvents,
-      List<String> searchEvents,
+      Set<String> searched,
       bool isLoading,
       VoidCallback loadMore});
 }
@@ -107,7 +107,7 @@ class __$$SearchResultsViewModel$CopyWithImpl<$Res>
   @override
   $Res call({
     Object? allEvents = null,
-    Object? searchEvents = null,
+    Object? searched = null,
     Object? isLoading = null,
     Object? loadMore = null,
   }) {
@@ -116,10 +116,10 @@ class __$$SearchResultsViewModel$CopyWithImpl<$Res>
           ? _value._allEvents
           : allEvents // ignore: cast_nullable_to_non_nullable
               as Map<String, Event>,
-      searchEvents: null == searchEvents
-          ? _value._searchEvents
-          : searchEvents // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      searched: null == searched
+          ? _value._searched
+          : searched // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -137,11 +137,11 @@ class __$$SearchResultsViewModel$CopyWithImpl<$Res>
 class _$SearchResultsViewModel$ implements SearchResultsViewModel$ {
   const _$SearchResultsViewModel$(
       {required final Map<String, Event> allEvents,
-      required final List<String> searchEvents,
+      required final Set<String> searched,
       required this.isLoading,
       required this.loadMore})
       : _allEvents = allEvents,
-        _searchEvents = searchEvents;
+        _searched = searched;
 
   final Map<String, Event> _allEvents;
   @override
@@ -151,12 +151,12 @@ class _$SearchResultsViewModel$ implements SearchResultsViewModel$ {
     return EqualUnmodifiableMapView(_allEvents);
   }
 
-  final List<String> _searchEvents;
+  final Set<String> _searched;
   @override
-  List<String> get searchEvents {
-    if (_searchEvents is EqualUnmodifiableListView) return _searchEvents;
+  Set<String> get searched {
+    if (_searched is EqualUnmodifiableSetView) return _searched;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_searchEvents);
+    return EqualUnmodifiableSetView(_searched);
   }
 
   @override
@@ -166,7 +166,7 @@ class _$SearchResultsViewModel$ implements SearchResultsViewModel$ {
 
   @override
   String toString() {
-    return 'SearchResultsViewModel(allEvents: $allEvents, searchEvents: $searchEvents, isLoading: $isLoading, loadMore: $loadMore)';
+    return 'SearchResultsViewModel(allEvents: $allEvents, searched: $searched, isLoading: $isLoading, loadMore: $loadMore)';
   }
 
   @override
@@ -176,8 +176,7 @@ class _$SearchResultsViewModel$ implements SearchResultsViewModel$ {
             other is _$SearchResultsViewModel$ &&
             const DeepCollectionEquality()
                 .equals(other._allEvents, _allEvents) &&
-            const DeepCollectionEquality()
-                .equals(other._searchEvents, _searchEvents) &&
+            const DeepCollectionEquality().equals(other._searched, _searched) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.loadMore, loadMore) ||
@@ -188,7 +187,7 @@ class _$SearchResultsViewModel$ implements SearchResultsViewModel$ {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_allEvents),
-      const DeepCollectionEquality().hash(_searchEvents),
+      const DeepCollectionEquality().hash(_searched),
       isLoading,
       loadMore);
 
@@ -203,14 +202,14 @@ class _$SearchResultsViewModel$ implements SearchResultsViewModel$ {
 abstract class SearchResultsViewModel$ implements SearchResultsViewModel {
   const factory SearchResultsViewModel$(
       {required final Map<String, Event> allEvents,
-      required final List<String> searchEvents,
+      required final Set<String> searched,
       required final bool isLoading,
       required final VoidCallback loadMore}) = _$SearchResultsViewModel$;
 
   @override
   Map<String, Event> get allEvents;
   @override
-  List<String> get searchEvents;
+  Set<String> get searched;
   @override
   bool get isLoading;
   @override
