@@ -12,6 +12,7 @@
 - Api calls: dio
 - Dependency injection: injectable, get_it
 - Useful tools: upcode_ci (especially for skipping generated code on format)
+- Ensure CI/CD pipelines with github actions
 
 ### Build runner
 
