@@ -1,0 +1,34 @@
+name: app - quality-assurance
+on:
+  push:
+
+jobs:
+  quality-assurance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Install Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Install upcode
+        run: |
+          dart pub global activate upcode_ci
+          echo "~/.pub-cache/bin" >> $GITHUB_PATH
+
+      - name: Setup flutter project
+        run: |
+          upcode flutter:environment set
+          flutter pub get
+
+      - name: Analyze flutter package
+        run: upcode flutter:analyze
+
+      - name: Check format
+        run: upcode flutter:format
