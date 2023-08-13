@@ -9,30 +9,29 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Text(
-                    S.of(context).events,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-              const FilterWidget(),
-              const SizedBox(height: 24),
-              SearchResultsContainer(
-                builder: (BuildContext context, SearchResultsViewModel vm) {
-                  return Expanded(child: EventsList(vm: vm));
-                },
-              ),
-            ],
-          ),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          children: <Widget>[
+            const SizedBox(height: 32),
+            Row(
+              children: <Widget>[
+                Text(
+                  S.of(context).events,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            const FilterWidget(),
+            const SizedBox(height: 24),
+            SearchResultsContainer(
+              builder: (BuildContext context, SearchResultsViewModel vm) {
+                return Expanded(child: EventsList(vm: vm));
+              },
+            ),
+          ],
         ),
       ),
     );
