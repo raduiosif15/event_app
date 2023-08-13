@@ -5,7 +5,6 @@ part 'dates.dart';
 part 'event.dart';
 part 'event_detailed.dart';
 part 'event_state.dart';
-part 'filter.dart';
 part 'image.dart';
 part 'index.freezed.dart';
 part 'index.g.dart';

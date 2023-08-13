@@ -1,10 +1,12 @@
 import 'package:event_app/src/presentation/pages/event_details.dart';
+import 'package:event_app/src/presentation/pages/genres_page.dart';
 import 'package:event_app/src/presentation/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
   static const String home = '/';
   static const String details = '/details';
+  static const String genres = '/genres';
 
   static final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (_) => const Home(),
@@ -13,5 +15,6 @@ class AppRoutes {
 
       return EventDetails(id: id);
     },
+    genres: (_) => const GenresPage(),
   };
 }

@@ -50,7 +50,8 @@ Future<GetIt> init() async {
     ],
   )
     ..dispatch(const GetEvents.start())
-    ..dispatch(const GetSavedEvents.start());
+    ..dispatch(const GetSavedEvents.start())
+    ..dispatch(const GetGenres.start());
 
   return getIt..registerSingleton(store);
 }

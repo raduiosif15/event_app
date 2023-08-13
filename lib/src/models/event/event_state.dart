@@ -6,7 +6,6 @@ class EventState with _$EventState {
     @Default(<String, Event>{}) Map<String, Event> events,
     @Default(<String>{}) Set<String> searched,
     @Default(<String>{}) Set<String> saved,
-    @Default(Filter()) Filter filter,
     @Default(Page()) Page page,
   }) = EventState$;
 

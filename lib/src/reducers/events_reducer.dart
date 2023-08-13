@@ -9,7 +9,6 @@ Reducer<EventState> eventsReducer = combineReducers(
     TypedReducer<EventState, GetSavedEventsSuccessful>(_getSavedEventsSuccessful).call,
     TypedReducer<EventState, SaveEvent>(_saveEvent).call,
     TypedReducer<EventState, UnsaveEvent>(_unsaveEvent).call,
-    TypedReducer<EventState, UpdateFilter>(_updateFilter).call,
   ],
 );
 
@@ -44,12 +43,4 @@ EventState _unsaveEvent(EventState state, UnsaveEvent action) {
   return state.copyWith(
     saved: Set<String>.unmodifiable(<String>{...state.saved}..remove(action.id)),
   );
-}
-
-EventState _updateFilter(EventState state, UpdateFilter action) {
-  if (action.keyword != null) {
-    return state.copyWith.filter(keyword: action.keyword);
-  }
-
-  return state.copyWith(filter: const Filter());
 }

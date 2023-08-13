@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:event_app/src/data/index.dart';
-import 'package:event_app/src/models/event/index.dart';
+import 'package:event_app/src/models/index.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';

@@ -6,6 +6,8 @@ part 'events/get_event.dart';
 part 'events/get_events.dart';
 part 'events/get_saved_events.dart';
 part 'events/set.dart';
+part 'filters/get_genres.dart';
+part 'filters/set.dart';
 part 'index.freezed.dart';
 
 abstract class AppAction {}

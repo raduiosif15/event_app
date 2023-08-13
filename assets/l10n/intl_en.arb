@@ -4,5 +4,7 @@
   "events": "Events",
   "no_results": "No results",
   "no_result": "No result",
-  "search": "Search"
+  "search": "Search",
+  "all_genres": "All genres",
+  "genres": "Genres"
 }

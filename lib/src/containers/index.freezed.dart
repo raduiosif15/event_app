@@ -15,6 +15,180 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$GenresViewModel {
+  List<Genre> get genres => throw _privateConstructorUsedError;
+  Set<String> get genreId => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $GenresViewModelCopyWith<GenresViewModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GenresViewModelCopyWith<$Res> {
+  factory $GenresViewModelCopyWith(
+          GenresViewModel value, $Res Function(GenresViewModel) then) =
+      _$GenresViewModelCopyWithImpl<$Res, GenresViewModel>;
+  @useResult
+  $Res call({List<Genre> genres, Set<String> genreId, bool isLoading});
+}
+
+/// @nodoc
+class _$GenresViewModelCopyWithImpl<$Res, $Val extends GenresViewModel>
+    implements $GenresViewModelCopyWith<$Res> {
+  _$GenresViewModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? genres = null,
+    Object? genreId = null,
+    Object? isLoading = null,
+  }) {
+    return _then(_value.copyWith(
+      genres: null == genres
+          ? _value.genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<Genre>,
+      genreId: null == genreId
+          ? _value.genreId
+          : genreId // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$GenresViewModel$CopyWith<$Res>
+    implements $GenresViewModelCopyWith<$Res> {
+  factory _$$GenresViewModel$CopyWith(
+          _$GenresViewModel$ value, $Res Function(_$GenresViewModel$) then) =
+      __$$GenresViewModel$CopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Genre> genres, Set<String> genreId, bool isLoading});
+}
+
+/// @nodoc
+class __$$GenresViewModel$CopyWithImpl<$Res>
+    extends _$GenresViewModelCopyWithImpl<$Res, _$GenresViewModel$>
+    implements _$$GenresViewModel$CopyWith<$Res> {
+  __$$GenresViewModel$CopyWithImpl(
+      _$GenresViewModel$ _value, $Res Function(_$GenresViewModel$) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? genres = null,
+    Object? genreId = null,
+    Object? isLoading = null,
+  }) {
+    return _then(_$GenresViewModel$(
+      genres: null == genres
+          ? _value._genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<Genre>,
+      genreId: null == genreId
+          ? _value._genreId
+          : genreId // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GenresViewModel$ implements GenresViewModel$ {
+  const _$GenresViewModel$(
+      {required final List<Genre> genres,
+      required final Set<String> genreId,
+      required this.isLoading})
+      : _genres = genres,
+        _genreId = genreId;
+
+  final List<Genre> _genres;
+  @override
+  List<Genre> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
+  final Set<String> _genreId;
+  @override
+  Set<String> get genreId {
+    if (_genreId is EqualUnmodifiableSetView) return _genreId;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_genreId);
+  }
+
+  @override
+  final bool isLoading;
+
+  @override
+  String toString() {
+    return 'GenresViewModel(genres: $genres, genreId: $genreId, isLoading: $isLoading)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GenresViewModel$ &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            const DeepCollectionEquality().equals(other._genreId, _genreId) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_genres),
+      const DeepCollectionEquality().hash(_genreId),
+      isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GenresViewModel$CopyWith<_$GenresViewModel$> get copyWith =>
+      __$$GenresViewModel$CopyWithImpl<_$GenresViewModel$>(this, _$identity);
+}
+
+abstract class GenresViewModel$ implements GenresViewModel {
+  const factory GenresViewModel$(
+      {required final List<Genre> genres,
+      required final Set<String> genreId,
+      required final bool isLoading}) = _$GenresViewModel$;
+
+  @override
+  List<Genre> get genres;
+  @override
+  Set<String> get genreId;
+  @override
+  bool get isLoading;
+  @override
+  @JsonKey(ignore: true)
+  _$$GenresViewModel$CopyWith<_$GenresViewModel$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SearchResultsViewModel {
   Map<String, Event> get allEvents => throw _privateConstructorUsedError;
   Set<String> get searched => throw _privateConstructorUsedError;

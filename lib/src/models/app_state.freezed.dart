@@ -21,6 +21,7 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AppState {
   EventState get events => throw _privateConstructorUsedError;
+  FilterState get filter => throw _privateConstructorUsedError;
   Set<String> get pending => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,9 +35,10 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({EventState events, Set<String> pending});
+  $Res call({EventState events, FilterState filter, Set<String> pending});
 
   $EventStateCopyWith<$Res> get events;
+  $FilterStateCopyWith<$Res> get filter;
 }
 
 /// @nodoc
@@ -53,6 +55,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @override
   $Res call({
     Object? events = null,
+    Object? filter = null,
     Object? pending = null,
   }) {
     return _then(_value.copyWith(
@@ -60,6 +63,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as EventState,
+      filter: null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as FilterState,
       pending: null == pending
           ? _value.pending
           : pending // ignore: cast_nullable_to_non_nullable
@@ -74,6 +81,14 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
       return _then(_value.copyWith(events: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FilterStateCopyWith<$Res> get filter {
+    return $FilterStateCopyWith<$Res>(_value.filter, (value) {
+      return _then(_value.copyWith(filter: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -83,10 +98,12 @@ abstract class _$$AppState$CopyWith<$Res> implements $AppStateCopyWith<$Res> {
       __$$AppState$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({EventState events, Set<String> pending});
+  $Res call({EventState events, FilterState filter, Set<String> pending});
 
   @override
   $EventStateCopyWith<$Res> get events;
+  @override
+  $FilterStateCopyWith<$Res> get filter;
 }
 
 /// @nodoc
@@ -101,6 +118,7 @@ class __$$AppState$CopyWithImpl<$Res>
   @override
   $Res call({
     Object? events = null,
+    Object? filter = null,
     Object? pending = null,
   }) {
     return _then(_$AppState$(
@@ -108,6 +126,10 @@ class __$$AppState$CopyWithImpl<$Res>
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as EventState,
+      filter: null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as FilterState,
       pending: null == pending
           ? _value._pending
           : pending // ignore: cast_nullable_to_non_nullable
@@ -121,6 +143,7 @@ class __$$AppState$CopyWithImpl<$Res>
 class _$AppState$ implements AppState$ {
   const _$AppState$(
       {this.events = const EventState(),
+      this.filter = const FilterState(),
       final Set<String> pending = const <String>{}})
       : _pending = pending;
 
@@ -130,6 +153,9 @@ class _$AppState$ implements AppState$ {
   @override
   @JsonKey()
   final EventState events;
+  @override
+  @JsonKey()
+  final FilterState filter;
   final Set<String> _pending;
   @override
   @JsonKey()
@@ -141,7 +167,7 @@ class _$AppState$ implements AppState$ {
 
   @override
   String toString() {
-    return 'AppState(events: $events, pending: $pending)';
+    return 'AppState(events: $events, filter: $filter, pending: $pending)';
   }
 
   @override
@@ -150,13 +176,14 @@ class _$AppState$ implements AppState$ {
         (other.runtimeType == runtimeType &&
             other is _$AppState$ &&
             (identical(other.events, events) || other.events == events) &&
+            (identical(other.filter, filter) || other.filter == filter) &&
             const DeepCollectionEquality().equals(other._pending, _pending));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, events, const DeepCollectionEquality().hash(_pending));
+  int get hashCode => Object.hash(runtimeType, events, filter,
+      const DeepCollectionEquality().hash(_pending));
 
   @JsonKey(ignore: true)
   @override
@@ -174,12 +201,16 @@ class _$AppState$ implements AppState$ {
 
 abstract class AppState$ implements AppState {
   const factory AppState$(
-      {final EventState events, final Set<String> pending}) = _$AppState$;
+      {final EventState events,
+      final FilterState filter,
+      final Set<String> pending}) = _$AppState$;
 
   factory AppState$.fromJson(Map<String, dynamic> json) = _$AppState$.fromJson;
 
   @override
   EventState get events;
+  @override
+  FilterState get filter;
   @override
   Set<String> get pending;
   @override

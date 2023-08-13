@@ -6,6 +6,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:redux/redux.dart';
 
+part 'genres_container.dart';
 part 'index.freezed.dart';
 part 'pending_container.dart';
 part 'saved_container.dart';

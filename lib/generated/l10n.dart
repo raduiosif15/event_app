@@ -99,6 +99,26 @@ class S {
       args: [],
     );
   }
+
+  /// `All genres`
+  String get all_genres {
+    return Intl.message(
+      'All genres',
+      name: 'all_genres',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Genres`
+  String get genres {
+    return Intl.message(
+      'Genres',
+      name: 'genres',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

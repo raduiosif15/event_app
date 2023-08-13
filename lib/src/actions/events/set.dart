@@ -14,8 +14,3 @@ class SaveEvent with _$SaveEvent implements AppAction {
 class UnsaveEvent with _$UnsaveEvent implements AppAction {
   const factory UnsaveEvent(String id) = UnsaveEvent$;
 }
-
-@freezed
-class UpdateFilter with _$UpdateFilter implements AppAction {
-  const factory UpdateFilter({String? keyword}) = UpdateFilter$;
-}

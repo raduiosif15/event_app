@@ -8,6 +8,7 @@ class AppColors {
   static const Color title = Color(0xFF30313E);
   static const Color eventTitle = Color(0xFF2E2F3C);
   static const Color text = Color(0xFF7F819D);
+  static const Color border = Color(0xFFC5C6D3);
 }
 
 class AppTheme {
@@ -30,7 +31,6 @@ class AppTheme {
       textTheme: TextTheme(
         titleLarge: textStyle.copyWith(fontSize: 36),
         titleMedium: textStyle.copyWith(
-          fontSize: 16,
           color: AppColors.eventTitle,
         ),
         titleSmall: textStyle.copyWith(
@@ -44,6 +44,10 @@ class AppTheme {
       ),
       appBarTheme: themeData.appBarTheme.copyWith(
         color: AppColors.orange,
+      ),
+      checkboxTheme: themeData.checkboxTheme.copyWith(
+        fillColor: const MaterialStatePropertyAll<Color>(AppColors.orange),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       ),
     );
   }

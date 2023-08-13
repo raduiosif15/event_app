@@ -2378,8 +2378,585 @@ abstract class UnsaveEvent$ implements UnsaveEvent {
 }
 
 /// @nodoc
+mixin _$GetGenres {
+  String get pendingId => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String pendingId) start,
+    required TResult Function(List<Genre> genres, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pendingId)? start,
+    TResult? Function(List<Genre> genres, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String pendingId)? start,
+    TResult Function(List<Genre> genres, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetGenresStart value) start,
+    required TResult Function(GetGenresSuccessful value) successful,
+    required TResult Function(GetGenresError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetGenresStart value)? start,
+    TResult? Function(GetGenresSuccessful value)? successful,
+    TResult? Function(GetGenresError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetGenresStart value)? start,
+    TResult Function(GetGenresSuccessful value)? successful,
+    TResult Function(GetGenresError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $GetGenresCopyWith<GetGenres> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetGenresCopyWith<$Res> {
+  factory $GetGenresCopyWith(GetGenres value, $Res Function(GetGenres) then) =
+      _$GetGenresCopyWithImpl<$Res, GetGenres>;
+  @useResult
+  $Res call({String pendingId});
+}
+
+/// @nodoc
+class _$GetGenresCopyWithImpl<$Res, $Val extends GetGenres>
+    implements $GetGenresCopyWith<$Res> {
+  _$GetGenresCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pendingId = null,
+  }) {
+    return _then(_value.copyWith(
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$GetGenresStartCopyWith<$Res>
+    implements $GetGenresCopyWith<$Res> {
+  factory _$$GetGenresStartCopyWith(
+          _$GetGenresStart value, $Res Function(_$GetGenresStart) then) =
+      __$$GetGenresStartCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String pendingId});
+}
+
+/// @nodoc
+class __$$GetGenresStartCopyWithImpl<$Res>
+    extends _$GetGenresCopyWithImpl<$Res, _$GetGenresStart>
+    implements _$$GetGenresStartCopyWith<$Res> {
+  __$$GetGenresStartCopyWithImpl(
+      _$GetGenresStart _value, $Res Function(_$GetGenresStart) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pendingId = null,
+  }) {
+    return _then(_$GetGenresStart(
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetGenresStart implements GetGenresStart {
+  const _$GetGenresStart({this.pendingId = _kGetGenresPendingId});
+
+  @override
+  @JsonKey()
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'GetGenres.start(pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetGenresStart &&
+            (identical(other.pendingId, pendingId) ||
+                other.pendingId == pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetGenresStartCopyWith<_$GetGenresStart> get copyWith =>
+      __$$GetGenresStartCopyWithImpl<_$GetGenresStart>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String pendingId) start,
+    required TResult Function(List<Genre> genres, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) {
+    return start(pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pendingId)? start,
+    TResult? Function(List<Genre> genres, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) {
+    return start?.call(pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String pendingId)? start,
+    TResult Function(List<Genre> genres, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (start != null) {
+      return start(pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetGenresStart value) start,
+    required TResult Function(GetGenresSuccessful value) successful,
+    required TResult Function(GetGenresError value) error,
+  }) {
+    return start(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetGenresStart value)? start,
+    TResult? Function(GetGenresSuccessful value)? successful,
+    TResult? Function(GetGenresError value)? error,
+  }) {
+    return start?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetGenresStart value)? start,
+    TResult Function(GetGenresSuccessful value)? successful,
+    TResult Function(GetGenresError value)? error,
+    required TResult orElse(),
+  }) {
+    if (start != null) {
+      return start(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetGenresStart implements GetGenres, ActionStart {
+  const factory GetGenresStart({final String pendingId}) = _$GetGenresStart;
+
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetGenresStartCopyWith<_$GetGenresStart> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetGenresSuccessfulCopyWith<$Res>
+    implements $GetGenresCopyWith<$Res> {
+  factory _$$GetGenresSuccessfulCopyWith(_$GetGenresSuccessful value,
+          $Res Function(_$GetGenresSuccessful) then) =
+      __$$GetGenresSuccessfulCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Genre> genres, String pendingId});
+}
+
+/// @nodoc
+class __$$GetGenresSuccessfulCopyWithImpl<$Res>
+    extends _$GetGenresCopyWithImpl<$Res, _$GetGenresSuccessful>
+    implements _$$GetGenresSuccessfulCopyWith<$Res> {
+  __$$GetGenresSuccessfulCopyWithImpl(
+      _$GetGenresSuccessful _value, $Res Function(_$GetGenresSuccessful) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? genres = null,
+    Object? pendingId = null,
+  }) {
+    return _then(_$GetGenresSuccessful(
+      null == genres
+          ? _value._genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<Genre>,
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetGenresSuccessful implements GetGenresSuccessful {
+  const _$GetGenresSuccessful(final List<Genre> genres,
+      {this.pendingId = _kGetGenresPendingId})
+      : _genres = genres;
+
+  final List<Genre> _genres;
+  @override
+  List<Genre> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
+  @override
+  @JsonKey()
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'GetGenres.successful(genres: $genres, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetGenresSuccessful &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.pendingId, pendingId) ||
+                other.pendingId == pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_genres), pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetGenresSuccessfulCopyWith<_$GetGenresSuccessful> get copyWith =>
+      __$$GetGenresSuccessfulCopyWithImpl<_$GetGenresSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String pendingId) start,
+    required TResult Function(List<Genre> genres, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) {
+    return successful(genres, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pendingId)? start,
+    TResult? Function(List<Genre> genres, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) {
+    return successful?.call(genres, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String pendingId)? start,
+    TResult Function(List<Genre> genres, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(genres, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetGenresStart value) start,
+    required TResult Function(GetGenresSuccessful value) successful,
+    required TResult Function(GetGenresError value) error,
+  }) {
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetGenresStart value)? start,
+    TResult? Function(GetGenresSuccessful value)? successful,
+    TResult? Function(GetGenresError value)? error,
+  }) {
+    return successful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetGenresStart value)? start,
+    TResult Function(GetGenresSuccessful value)? successful,
+    TResult Function(GetGenresError value)? error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetGenresSuccessful implements GetGenres, ActionDone {
+  const factory GetGenresSuccessful(final List<Genre> genres,
+      {final String pendingId}) = _$GetGenresSuccessful;
+
+  List<Genre> get genres;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetGenresSuccessfulCopyWith<_$GetGenresSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetGenresErrorCopyWith<$Res>
+    implements $GetGenresCopyWith<$Res> {
+  factory _$$GetGenresErrorCopyWith(
+          _$GetGenresError value, $Res Function(_$GetGenresError) then) =
+      __$$GetGenresErrorCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Object error, StackTrace stackTrace, String pendingId});
+}
+
+/// @nodoc
+class __$$GetGenresErrorCopyWithImpl<$Res>
+    extends _$GetGenresCopyWithImpl<$Res, _$GetGenresError>
+    implements _$$GetGenresErrorCopyWith<$Res> {
+  __$$GetGenresErrorCopyWithImpl(
+      _$GetGenresError _value, $Res Function(_$GetGenresError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+    Object? stackTrace = null,
+    Object? pendingId = null,
+  }) {
+    return _then(_$GetGenresError(
+      null == error ? _value.error : error,
+      null == stackTrace
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
+      pendingId: null == pendingId
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetGenresError implements GetGenresError {
+  const _$GetGenresError(this.error, this.stackTrace,
+      {this.pendingId = _kGetGenresPendingId});
+
+  @override
+  final Object error;
+  @override
+  final StackTrace stackTrace;
+  @override
+  @JsonKey()
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'GetGenres.error(error: $error, stackTrace: $stackTrace, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetGenresError &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace) &&
+            (identical(other.pendingId, pendingId) ||
+                other.pendingId == pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(error), stackTrace, pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetGenresErrorCopyWith<_$GetGenresError> get copyWith =>
+      __$$GetGenresErrorCopyWithImpl<_$GetGenresError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String pendingId) start,
+    required TResult Function(List<Genre> genres, String pendingId) successful,
+    required TResult Function(
+            Object error, StackTrace stackTrace, String pendingId)
+        error,
+  }) {
+    return error(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pendingId)? start,
+    TResult? Function(List<Genre> genres, String pendingId)? successful,
+    TResult? Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+  }) {
+    return error?.call(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String pendingId)? start,
+    TResult Function(List<Genre> genres, String pendingId)? successful,
+    TResult Function(Object error, StackTrace stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error, stackTrace, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetGenresStart value) start,
+    required TResult Function(GetGenresSuccessful value) successful,
+    required TResult Function(GetGenresError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetGenresStart value)? start,
+    TResult? Function(GetGenresSuccessful value)? successful,
+    TResult? Function(GetGenresError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetGenresStart value)? start,
+    TResult Function(GetGenresSuccessful value)? successful,
+    TResult Function(GetGenresError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetGenresError implements GetGenres, ActionDone, ErrorAction {
+  const factory GetGenresError(final Object error, final StackTrace stackTrace,
+      {final String pendingId}) = _$GetGenresError;
+
+  Object get error;
+  StackTrace get stackTrace;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetGenresErrorCopyWith<_$GetGenresError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$UpdateFilter {
   String? get keyword => throw _privateConstructorUsedError;
+  String? get genreId => throw _privateConstructorUsedError;
+  bool? get clearGenres => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateFilterCopyWith<UpdateFilter> get copyWith =>
@@ -2392,7 +2969,7 @@ abstract class $UpdateFilterCopyWith<$Res> {
           UpdateFilter value, $Res Function(UpdateFilter) then) =
       _$UpdateFilterCopyWithImpl<$Res, UpdateFilter>;
   @useResult
-  $Res call({String? keyword});
+  $Res call({String? keyword, String? genreId, bool? clearGenres});
 }
 
 /// @nodoc
@@ -2409,12 +2986,22 @@ class _$UpdateFilterCopyWithImpl<$Res, $Val extends UpdateFilter>
   @override
   $Res call({
     Object? keyword = freezed,
+    Object? genreId = freezed,
+    Object? clearGenres = freezed,
   }) {
     return _then(_value.copyWith(
       keyword: freezed == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
               as String?,
+      genreId: freezed == genreId
+          ? _value.genreId
+          : genreId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      clearGenres: freezed == clearGenres
+          ? _value.clearGenres
+          : clearGenres // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -2427,7 +3014,7 @@ abstract class _$$UpdateFilter$CopyWith<$Res>
       __$$UpdateFilter$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? keyword});
+  $Res call({String? keyword, String? genreId, bool? clearGenres});
 }
 
 /// @nodoc
@@ -2442,12 +3029,22 @@ class __$$UpdateFilter$CopyWithImpl<$Res>
   @override
   $Res call({
     Object? keyword = freezed,
+    Object? genreId = freezed,
+    Object? clearGenres = freezed,
   }) {
     return _then(_$UpdateFilter$(
       keyword: freezed == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
               as String?,
+      genreId: freezed == genreId
+          ? _value.genreId
+          : genreId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      clearGenres: freezed == clearGenres
+          ? _value.clearGenres
+          : clearGenres // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -2455,14 +3052,18 @@ class __$$UpdateFilter$CopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateFilter$ implements UpdateFilter$ {
-  const _$UpdateFilter$({this.keyword});
+  const _$UpdateFilter$({this.keyword, this.genreId, this.clearGenres});
 
   @override
   final String? keyword;
+  @override
+  final String? genreId;
+  @override
+  final bool? clearGenres;
 
   @override
   String toString() {
-    return 'UpdateFilter(keyword: $keyword)';
+    return 'UpdateFilter(keyword: $keyword, genreId: $genreId, clearGenres: $clearGenres)';
   }
 
   @override
@@ -2470,11 +3071,14 @@ class _$UpdateFilter$ implements UpdateFilter$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateFilter$ &&
-            (identical(other.keyword, keyword) || other.keyword == keyword));
+            (identical(other.keyword, keyword) || other.keyword == keyword) &&
+            (identical(other.genreId, genreId) || other.genreId == genreId) &&
+            (identical(other.clearGenres, clearGenres) ||
+                other.clearGenres == clearGenres));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, keyword);
+  int get hashCode => Object.hash(runtimeType, keyword, genreId, clearGenres);
 
   @JsonKey(ignore: true)
   @override
@@ -2484,10 +3088,17 @@ class _$UpdateFilter$ implements UpdateFilter$ {
 }
 
 abstract class UpdateFilter$ implements UpdateFilter {
-  const factory UpdateFilter$({final String? keyword}) = _$UpdateFilter$;
+  const factory UpdateFilter$(
+      {final String? keyword,
+      final String? genreId,
+      final bool? clearGenres}) = _$UpdateFilter$;
 
   @override
   String? get keyword;
+  @override
+  String? get genreId;
+  @override
+  bool? get clearGenres;
   @override
   @JsonKey(ignore: true)
   _$$UpdateFilter$CopyWith<_$UpdateFilter$> get copyWith =>

@@ -1,4 +1,5 @@
 import 'package:event_app/src/models/event/index.dart';
+import 'package:event_app/src/models/filter/index.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_state.freezed.dart';
@@ -8,6 +9,7 @@ part 'app_state.g.dart';
 class AppState with _$AppState {
   const factory AppState({
     @Default(EventState()) EventState events,
+    @Default(FilterState()) FilterState filter,
     @Default(<String>{}) Set<String> pending,
   }) = AppState$;
 
