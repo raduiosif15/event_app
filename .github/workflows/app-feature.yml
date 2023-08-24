@@ -11,11 +11,13 @@ jobs:
 
       - uses: kuhnroyal/flutter-fvm-config-action@v1
         name: Fvm config action
+        id: fvm-config-action
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
 
       - name: Install Dart
         uses: dart-lang/setup-dart@v1
