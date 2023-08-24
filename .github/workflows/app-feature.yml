@@ -23,7 +23,10 @@ jobs:
         uses: dart-lang/setup-dart@v1
 
       - name: Config fvm
-        run: dart pub global activate fvm
+        run: | 
+          dart pub global activate fvm
+          fvm flutter pub get
+          Y
 
       - name: Install upcode
         run: |
