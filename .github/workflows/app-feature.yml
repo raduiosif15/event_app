@@ -9,24 +9,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Dart
-        uses: dart-lang/setup-dart@v1
-
       - name: Config fvm
         id: fvm-config-action
         uses: kuhnroyal/flutter-fvm-config-action@v1
-
-      - name: Activate fvm
-        run: dart pub global activate fvm
-
-      - name: Install current fvm
-        run: echo 'Y' | fvm flutter pub get
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+
+      - name: Install Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Activate fvm
+        run: dart pub global activate fvm
 
       - name: Install upcode
         run: |
@@ -36,7 +33,7 @@ jobs:
       - name: Setup flutter project
         run: |
           upcode flutter:environment set
-          flutter pub get
+          echo 'Y' | fvm flutter pub get
 
       - name: Analyze flutter package
         run: upcode flutter:analyze
