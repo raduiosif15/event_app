@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: kuhnroyal/flutter-fvm-config-action@v1
-        name: Fvm config action
+      - name: Fvm config action
         id: fvm-config-action
+        uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
