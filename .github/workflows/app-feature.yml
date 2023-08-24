@@ -19,6 +19,11 @@ jobs:
       - name: Activate fvm
         run: dart pub global activate fvm
 
+      - name: Install current fvm
+        run: |
+          fvm flutter pub get
+          Y
+
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
