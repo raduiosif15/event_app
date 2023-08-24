@@ -25,7 +25,7 @@ jobs:
       - name: Config fvm
         run: | 
           dart pub global activate fvm
-          fvm flutter pub get
+#          fvm flutter pub get
           Y
 
       - name: Install upcode
